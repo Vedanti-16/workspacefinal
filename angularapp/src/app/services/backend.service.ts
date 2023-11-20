@@ -27,4 +27,9 @@ export class BackendService {
         console.log(error);
      });
   }
+
+  deleteData(id:number){
+    this.http.delete(this.url+"/deletedata/"+id,{headers:this.httpHeaders})
+    .subscribe();
+  }
 }
