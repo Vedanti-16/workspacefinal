@@ -15,7 +15,8 @@
         <td>{{data.designationName}}</td>
         <td>{{data.salary}}</td>
         <td>{{data.joindate}}</td>
-        <td><a [routerLink]="['/editlink/',data.employeeId]">Edit</a></td>
+        <td><button class="btn btn-primary"><a [routerLink]="['/editlink/',data.employeeId]">Edit</a></button></td>
+        <td><button class="btn btn-primary"><a [routerLink]="['/deletelink/',data.employeeId">Delete</a></button></td>
         <!-- ['/editlink/',data.employeeId] -->
     </tr>
 </table>

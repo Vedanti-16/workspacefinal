@@ -29,7 +29,6 @@ export class BackendService {
   }
 
   deleteData(id:number){
-    this.http.delete(this.url+"/deletedata/"+id,{headers:this.httpHeaders})
-    .subscribe();
+    this.http.delete(this.url+"/deletedata/"+id,{headers:this.httpHeaders}).subscribe();
   }
 }
