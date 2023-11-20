@@ -1,4 +1,9 @@
-<form>
+<form [formGroup] = "loginform" (ngSubmit)="loginuser()">
   <label>Name</label>
-  <input name=""namet ype="text" />
+  <input name="name" type="text" formControlName="user"/>
+  <span *ngIf="user && user.invalid">Enter valid input</span>
+  <br>
+  <label>Password</label>
+  <input name="password" type="text" formControlName="password"/><br>
+  <button>login</button>
 </form>
