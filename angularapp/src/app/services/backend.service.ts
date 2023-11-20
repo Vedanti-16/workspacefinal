@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,9 @@ export class BackendService {
   constructor(private http:HttpClient) { }
 
   getData() : Observable<any[]>{
-    return this.http.
+    let httpHeaders:HttpHeaders = new HttpHeaders({
+      Accept:"application/json"
+    });
+    return this.http.get<any>(this.url,{headers:httpHeaders});
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-get-form',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:BackendService) {
+    return this.http.getData().subscribe(data=>this.empdata = data);
+   }
 
   ngOnInit() {
   }
+
 
 }
