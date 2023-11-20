@@ -28,7 +28,7 @@ export class EditFormComponent implements OnInit {
     console.log(this.editform.value);
     this.http.updateData(this.editform.controls['employeeId'].value,this.editform.value)
 
-    this.route.navigate([' ']);
+    this.route.navigate(['']);
   }
 
 }
