@@ -8,17 +8,17 @@ import { Observable } from 'rxjs';
 export class BackendService {
 
   private url = "https://8080-adbbbcccdfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/EmployeeDb";
+  httpHeaders:HttpHeaders = new HttpHeaders({
+    Accept:'application/json'
+  })
 
   constructor(private http:HttpClient) { }
 
   getData() : Observable<any[]>{
-    let httpHeaders:HttpHeaders = new HttpHeaders({
-      Accept:"application/json"
-    });
-    return this.http.get<any>(this.url,{headers:httpHeaders});
+    return this.http.get<any>(this.url,{headers:this.httpHeaders});
   }
 
-  updateData(){
-
+  updateData(id:number, data:any) : Observable<any>{
+    return this.http.put(this.url,data,{headers:this.httpHeaders});
   }
 }

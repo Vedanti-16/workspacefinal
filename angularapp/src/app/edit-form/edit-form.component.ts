@@ -15,6 +15,7 @@ export class EditFormComponent implements OnInit {
   }
 
   editform = new FormGroup({
+    employeeId:new FormControl(''),
     employeeName:new FormControl(''),
     departmentID:new FormControl(''),
     designationId:new FormControl(''),
@@ -23,7 +24,7 @@ export class EditFormComponent implements OnInit {
   })
 
   handleedit(){
-    this.http.()
+    this.http.updateData(this.editform.controls['employeeId'].value,this.editform.value).subscribe();
   }
 
 }
