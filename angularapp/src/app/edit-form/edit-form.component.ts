@@ -24,7 +24,14 @@ export class EditFormComponent implements OnInit {
   })
 
   handleedit(){
-    this.http.updateData(this.editform.controls['employeeId'].value,this.editform.value).subscribe();
+    console.log(this.editform.value);
+    this.http.updateData(this.editform.controls['employeeId'].value,this.editform.value).
+    subscribe(success => {
+       console.log(success);
+    },
+      error=>{
+         console.log(error);
+      })
   }
 
 }

@@ -19,6 +19,6 @@ export class BackendService {
   }
 
   updateData(id:number, data:any) : Observable<any>{
-    return this.http.put(this.url,data,{headers:this.httpHeaders});
+    return this.http.put(this.url + "/updatedata/" +id,data,{headers:this.httpHeaders});
   }
 }
