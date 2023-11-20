@@ -1,9 +1,20 @@
-<form [formGroup] = "loginform" (ngSubmit)="loginuser()">
+<!-- <form [formGroup] = "loginform" (ngSubmit)="loginuser()">
   <label>Name</label>
   <input name="name" type="text" formControlName="user"/>
-  <span *ngIf="user && user.invalid">Enter valid input</span>
+  <span style="color: brown;" *ngIf="user && user.invalid && user.touched">Enter valid input</span>
   <br>
   <label>Password</label>
-  <input name="password" type="text" formControlName="password"/><br>
+  <input name="password" type="text" formControlName="password"/>
+  <span *ngIf="password && password.invalid && password.touched">Enter valid input</span>
+  <br>
   <button>login</button>
+</form> -->
+
+<form #loginform="ngForm" (ngSubmit)="handlesave(loginform)">
+  <label>Name</label>
+  <input name="name" type="text" ngModel/>
+  <br>
+  <label>Password</label>
+  <input name="password" type="text" ngModel/>
+  <br>
 </form>
