@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../services/backend.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-form',
@@ -13,8 +14,16 @@ export class EditFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  editform = new FormGroup({
+    employeeName:new FormControl(''),
+    departmentID:new FormControl(''),
+    designationId:new FormControl(''),
+    salary:new FormControl(''),
+    joindate:new FormControl('')
+  })
+
   handleedit(){
-    
+    this.http.()
   }
 
 }

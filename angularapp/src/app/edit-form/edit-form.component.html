@@ -1,8 +1,8 @@
 <form class="form-group" [formGroup] = "editform" (ngSubmit) = "handleedit()">
-    <div>
+    <!-- <div>
         <label>Enter EmployeeID</label>
-        <input type="number" name="">
-    </div>
+        <input type="number" name="employeeId" formControlName="employeeId">
+    </div> -->
     <div>
         <label >Enter Name:</label>
         <input type="text" name="employeeName" formControlName="employeeName"/>
@@ -20,7 +20,16 @@
 
     <div>
         <label>Enter Salary:</label>
-        <input type="number"/>
+        <input type="number" name="salary" formControlName="salary"/>
+    </div>
+
+    <div>
+        <label>Enter JoinDate:</label>
+        <input type="datetime-local" name="joindate" formControlName="joindate"/>
+    </div>
+
+    <div>
+        <button type="submit">Submit</button>
     </div>
 
 </form>

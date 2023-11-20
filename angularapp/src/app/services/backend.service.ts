@@ -17,4 +17,8 @@ export class BackendService {
     });
     return this.http.get<any>(this.url,{headers:httpHeaders});
   }
+
+  updateData(){
+
+  }
 }

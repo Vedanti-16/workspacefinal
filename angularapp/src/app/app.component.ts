@@ -8,6 +8,7 @@ import { NgForm, NgModel } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'angularapp';
   // loginform = new FormGroup({
