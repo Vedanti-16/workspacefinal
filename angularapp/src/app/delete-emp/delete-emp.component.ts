@@ -16,13 +16,13 @@ export class DeleteEmpComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteform = new FormGroup({
-    id:new FormControl()
-  })
+  // deleteform = new FormGroup({
+  //   employeeId:new FormControl(0)
+  // })
 
-  handledelete(){
-    this.http.deleteData(this.deleteform.controls["id"].value)
+  handledelete(id:number){
+    this.http.deleteData(id).subscribe()
     this.route.navigate(['']);
   }
-
+  
 }

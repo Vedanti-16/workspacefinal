@@ -28,7 +28,7 @@ export class BackendService {
      });
   }
 
-  deleteData(id:number){
-    this.http.delete(this.url+"/deletedata/"+id,{headers:this.httpHeaders}).subscribe();
+  deleteData(id:number):Observable<number>{
+    return this.http.delete<number>(this.url+"/deletedata/"+id,{headers:this.httpHeaders});
   }
 }
