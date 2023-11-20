@@ -8,12 +8,13 @@ import { BackendService } from '../services/backend.service';
 })
 export class GetFormComponent implements OnInit {
 
+  empdata:any[] = [];
+
   constructor(private http:BackendService) {
-    return this.http.getData().subscribe(data=>this.empdata = data);
+    this.http.getData().subscribe(data=>this.empdata = data);
    }
 
   ngOnInit() {
   }
-
 
 }

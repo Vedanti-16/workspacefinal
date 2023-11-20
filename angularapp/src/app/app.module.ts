@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetFormComponent } from './get-form/get-form.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { EditFormComponent } from './edit-form/edit-form.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    GetFormComponent
+    GetFormComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
