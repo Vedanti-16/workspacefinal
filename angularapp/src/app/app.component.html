@@ -12,9 +12,10 @@
 
 <form #loginform="ngForm" (ngSubmit)="handlesave(loginform)">
   <label>Name</label>
-  <input name="name" type="text" ngModel/>
+  <input name="name" #name="ngModel" type="text" ngModel/>
   <br>
   <label>Password</label>
-  <input name="password" type="text" ngModel/>
+  <input name="password" #password="ng" type="text" ngModel/>
   <br>
+  <button type="submit">Login</button>
 </form>

@@ -1,6 +1,7 @@
-import { NgForOf } from '@angular/common';
+// import { NgForOf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -26,5 +27,8 @@ export class AppComponent {
   //   return this.loginform.get('password');
   // }
 
-  handlesave(form:NgForm);
+  handlesave(form:NgForm){
+    console.log(form.value);
+    console.log(form.controls["name"].value);
+  }
 }
