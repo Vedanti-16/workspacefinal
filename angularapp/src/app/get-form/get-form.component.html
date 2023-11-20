@@ -15,7 +15,7 @@
         <td>{{data.designationName}}</td>
         <td>{{data.salary}}</td>
         <td>{{data.joindate}}</td>
-        <td><a [routerLink]="/editlink">Edit</a></td>
-
+        <td><a [routerLink]="['/editlink/',data.employeeId]">Edit</a></td>
+        <!-- ['/editlink/',data.employeeId] -->
     </tr>
 </table>

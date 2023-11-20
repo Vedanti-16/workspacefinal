@@ -6,7 +6,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 
 const routes: Routes = [
   {path:'',component:GetFormComponent},
-  {path:'editlink',component:EditFormComponent}
+  {path:'editlink/:employeeId',component:EditFormComponent}
 ];
 
 @NgModule({
