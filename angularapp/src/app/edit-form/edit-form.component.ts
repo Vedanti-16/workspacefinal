@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-form',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class EditFormComponent implements OnInit {
 
-  constructor(private http:BackendService) { }
+  constructor(private http:BackendService, private route:Router) { }
 
   ngOnInit() {
   }
@@ -25,13 +26,9 @@ export class EditFormComponent implements OnInit {
 
   handleedit(){
     console.log(this.editform.value);
-    this.http.updateData(this.editform.controls['employeeId'].value,this.editform.value).
-    subscribe(success => {
-       console.log(success);
-    },
-      error=>{
-         console.log(error);
-      })
+    this.http.updateData(this.editform.controls['employeeId'].value,this.editform.value)
+
+    this.route.navigate([' ']);
   }
 
 }

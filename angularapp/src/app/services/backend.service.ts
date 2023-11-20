@@ -18,7 +18,13 @@ export class BackendService {
     return this.http.get<any>(this.url,{headers:this.httpHeaders});
   }
 
-  updateData(id:number, data:any) : Observable<any>{
-    return this.http.put(this.url + "/updatedata/" +id,data,{headers:this.httpHeaders});
+  updateData(id:number, data:any){
+    this.http.put(this.url + "/updatedata/" +id,data,{headers:this.httpHeaders})
+    .subscribe(success => {
+      console.log(success);
+   },
+     error=>{
+        console.log(error);
+     });
   }
 }
