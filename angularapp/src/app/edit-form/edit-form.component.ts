@@ -15,11 +15,11 @@ export class EditFormComponent implements OnInit {
   }
 
   editform = new FormGroup({
-    employeeId:new FormControl(''),
+    employeeId:new FormControl(0),
     employeeName:new FormControl(''),
-    departmentID:new FormControl(''),
-    designationId:new FormControl(''),
-    salary:new FormControl(''),
+    departmentID:new FormControl(0),
+    designationId:new FormControl(0),
+    salary:new FormControl(0),
     joindate:new FormControl('')
   })
 
