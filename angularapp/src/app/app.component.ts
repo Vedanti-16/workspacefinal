@@ -27,8 +27,8 @@ export class AppComponent {
   //   return this.loginform.get('password');
   // }
 
-  handlesave(form:NgForm){
-    console.log(form.value);
-    console.log(form.controls["name"].value);
-  }
+  // handlesave(form:NgForm){
+  //   console.log(form.value);
+  //   console.log(form.controls["name"].value);
+  // }
 }
