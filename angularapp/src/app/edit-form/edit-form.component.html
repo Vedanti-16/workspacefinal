@@ -1,5 +1,26 @@
-<form [formGroup] = "editform" (ngSubmit) = "handleedit()">
+<form class="form-group" [formGroup] = "editform" (ngSubmit) = "handleedit()">
     <div>
-        <label>Enter </label>
+        <label>Enter EmployeeID</label>
+        <input type="number" name="">
     </div>
+    <div>
+        <label >Enter Name:</label>
+        <input type="text" name="employeeName" formControlName="employeeName"/>
+    </div>
+
+    <div>
+        <label>Enter DepartmentID:</label>
+        <input type="number" name="departmentID" fromControlName="departmentID" />
+    </div>
+
+    <div>
+        <label>Enter DesignationID:</label>
+        <input type="number" name="designationId" formControlName="designationId"/>
+    </div>
+
+    <div>
+        <label>Enter Salary:</label>
+        <input type="number"/>
+    </div>
+
 </form>
