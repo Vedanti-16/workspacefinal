@@ -1,0 +1,35 @@
+<form class="form-group" [formGroup] = "postform" (ngSubmit) = "handlepost()">
+    <!-- <div>
+        <label>Enter EmployeeID</label>
+        <input type="number" name="employeeId" formControlName="employeeId">
+    </div> -->
+    <div>
+        <label >Enter Name:</label>
+        <input type="text" name="employeeName" formControlName="employeeName"/>
+    </div>
+
+    <div>
+        <label>Enter DepartmentID:</label>
+        <input type="number" name="departmentID" formControlName="departmentID" />
+    </div>
+
+    <div>
+        <label>Enter DesignationID:</label>
+        <input type="number" name="designationId" formControlName="designationId"/>
+    </div>
+
+    <div>
+        <label>Enter Salary:</label>
+        <input type="number" name="salary" formControlName="salary"/>
+    </div>
+
+    <div>
+        <label>Enter JoinDate:</label>
+        <input type="datetime-local" name="joindate" formControlName="joindate"/>
+    </div>
+
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+
+</form>

@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IEmployee } from '../employee';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,9 @@ export class BackendService {
 
   deleteData(id:number):Observable<number>{
     return this.http.delete<number>(this.url+"/deletedata/"+id,{headers:this.httpHeaders});
+  }
+
+  postData(data:IEmployee){
+    this.http.post(this.url,data,{headers:this.httpHeaders})
   }
 }
