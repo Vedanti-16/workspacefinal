@@ -11,13 +11,19 @@ import { Router } from '@angular/router';
 export class GetFormComponent implements OnInit {
 
   empdata:any[] = [];
-  route: any;
+  
 
-  constructor(private http:BackendService, route:Router) {
-    this.http.getData().subscribe(data=>this.empdata = data);
+  constructor(private http:BackendService,private route:Router) {
+    console.log("constructor...")
+    this.http.getData().subscribe(data=>{
+      this.empdata = data;
+      console.log(this.empdata);
+    });
+   // console.log(this.empdata)
   }
 
   ngOnInit() {
+    this.http.getData().subscribe(data=>this.empdata = data);
   }
 
 }

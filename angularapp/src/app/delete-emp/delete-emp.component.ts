@@ -9,10 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./delete-emp.component.css']
 })
 export class DeleteEmpComponent implements OnInit {
-  route: any;
+  
   emp_id: number;
 
-  constructor(private http:BackendService, route:Router, private aroute:ActivatedRoute) {
+  constructor(private http:BackendService,private route:Router, private aroute:ActivatedRoute) {
       let eid = parseInt(this.aroute.snapshot.paramMap.get('employeeId'));
       this.emp_id = eid;
       console.log(eid);
@@ -22,7 +22,7 @@ export class DeleteEmpComponent implements OnInit {
       err => {
         console.log(err);
       })
-      this.route.navigate(['/','']);
+      this.route.navigate(['']);
    }
 
   ngOnInit() {

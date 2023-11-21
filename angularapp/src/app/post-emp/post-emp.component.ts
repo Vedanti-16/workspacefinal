@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BackendService } from '../services/backend.service';
-import { Router } from '@angular/router';
+import { Router, Route } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./post-emp.component.css']
 })
 export class PostEmpComponent implements OnInit {
-  route: any;
+ 
 
-  constructor(private http:BackendService, route:Router) { }
+  constructor(private http:BackendService, private route:Router) { }
 
   ngOnInit() {
   }
@@ -27,9 +27,11 @@ export class PostEmpComponent implements OnInit {
   })
 
   handlepost(){
-    this.http.postData(this.postform.value).subscribe((success) =>{ this.route.navigateByUrl('/addemplink')},
+    this.http.postData(this.postform.value).subscribe((success) =>{ 
+     },
     error=>{
          console.log(error);
-    })
+    });
+    this.route.navigate(['']);
   }
 }
