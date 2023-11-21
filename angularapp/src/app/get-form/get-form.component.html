@@ -17,6 +17,7 @@
         <td>{{data.joindate}}</td>
         <td><button class="btn btn-primary"><a [routerLink]="['/editlink/',data.employeeId]">Edit</a></button></td>
         <td><a [routerLink]="['/deletelink/',data.employeeId]"><button class="btn btn-primary">Delete</button></a></td>
+        <td><a [routerLink]="['/getbyid/',data.employeeId]"><button class="btn btn-primary">Get Complete Data</button></a></td>
         <!-- ['/editlink/',data.employeeId] -->
     </tr>
 </table>

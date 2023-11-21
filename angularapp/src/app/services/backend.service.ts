@@ -38,6 +38,6 @@ export class BackendService {
   }
 
   getById(id:number) : Observable<any>{
-    return this.http.get<any>(this.url+"/"+id,{headers:this.httpHeaders})
+    return this.http.get<any>(this.url+"/getbyid/"+id,{headers:this.httpHeaders})
   }
 }
