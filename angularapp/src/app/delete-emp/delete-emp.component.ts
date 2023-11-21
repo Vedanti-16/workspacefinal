@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-emp',
@@ -10,21 +10,30 @@ import { Router } from '@angular/router';
 })
 export class DeleteEmpComponent implements OnInit {
   route: any;
+  emp_id: number;
 
-  constructor(private http:BackendService, route:Router) {
-    
+  constructor(private http:BackendService, route:Router, private aroute:ActivatedRoute) {
+      let eid = parseInt(this.aroute.snapshot.paramMap.get('employeeId'));
+      this.emp_id = eid;
+      console.log(eid);
+      this.http.deleteData(eid).subscribe(success => {
+          console.log(success);
+      },
+      err => {
+        console.log(err);
+      })
+      this.route.navigate(['/', ' ']);
    }
 
   ngOnInit() {
+
   }
 
   // deleteform = new FormGroup({
   //   employeeId:new FormControl(0)
   // })
 
-  handledelete(id:number){
-    this.http.deleteData(id).subscribe()
-    this.route.navigate(['']);
-  }
+  
+    
 
 }
