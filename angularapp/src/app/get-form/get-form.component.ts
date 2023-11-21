@@ -17,7 +17,7 @@ export class GetFormComponent implements OnInit {
     console.log("constructor...")
     this.http.getData().subscribe(data=>{
       this.empdata = data;
-      console.log(this.empdata);
+      
     });
    // console.log(this.empdata)
   }

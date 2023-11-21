@@ -36,4 +36,8 @@ export class BackendService {
   postData(data:IEmployee) : Observable<IEmployee>{
     return this.http.post<IEmployee>(this.url,data,{headers:this.httpHeaders});
   }
+
+  getById(id:number) : Observable<any>{
+    return this.http.get<any>(this.url+"/"+id,{headers:this.httpHeaders})
+  }
 }

@@ -8,7 +8,8 @@ import { GetFormComponent } from './get-form/get-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { DeleteEmpComponent } from './delete-emp/delete-emp.component';
-import { PostEmpComponent } from './post-emp/post-emp.component'
+import { PostEmpComponent } from './post-emp/post-emp.component';
+import { GetempbyidComponent } from './getempbyid/getempbyid.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PostEmpComponent } from './post-emp/post-emp.component'
     GetFormComponent,
     EditFormComponent,
     DeleteEmpComponent,
-    PostEmpComponent
+    PostEmpComponent,
+    GetempbyidComponent
   ],
   imports: [
     BrowserModule,
