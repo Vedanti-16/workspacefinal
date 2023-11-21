@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BackendService } from '../services/backend.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-emp',
@@ -26,6 +27,9 @@ export class PostEmpComponent implements OnInit {
   })
 
   handlepost(){
-    this.http.postData(this.postform.value).subscribe((success) =>{ this.route.navigate([''])})
+    this.http.postData(this.postform.value).subscribe((success) =>{ this.route.navigateByUrl('/addemplink')},
+    error=>{
+         console.log(error);
+    })
   }
 }
