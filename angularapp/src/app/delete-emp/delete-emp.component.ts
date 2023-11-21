@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 export class DeleteEmpComponent implements OnInit {
   route: any;
 
-  constructor(private http:BackendService, route:Router) { }
+  constructor(private http:BackendService, route:Router) {
+    
+   }
 
   ngOnInit() {
   }
@@ -24,5 +26,5 @@ export class DeleteEmpComponent implements OnInit {
     this.http.deleteData(id).subscribe()
     this.route.navigate(['']);
   }
-  
+
 }

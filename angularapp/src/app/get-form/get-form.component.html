@@ -6,8 +6,8 @@
         <th>Departement Name<th>
         <th>Designation</th>
         <th>Salary</th>
-        <th>joinDate</th>
-        <th>actions</th>
+        <th>Join Date</th>
+        <th>Actions</th>
     </tr>
     <tr *ngFor="let data of empdata">
         <td>{{data.employeeName}}</td>
@@ -16,7 +16,7 @@
         <td>{{data.salary}}</td>
         <td>{{data.joindate}}</td>
         <td><button class="btn btn-primary"><a [routerLink]="['/editlink/',data.employeeId]">Edit</a></button></td>
-        <td><button class="btn btn-primary"><a [routerLink]="['/deletelink/',data.employeeId]">Delete</a></button></td>
+        <td><a [routerLink]="['/deletelink/',data.employeeId]"><button (click)="handledelete(data.employeeId)" class="btn btn-primary">Delete</button></a></td>
         <!-- ['/editlink/',data.employeeId] -->
     </tr>
 </table>

@@ -7,14 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetFormComponent } from './get-form/get-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { EditFormComponent } from './edit-form/edit-form.component';
-import { DeleteEmpComponent } from './delete-emp/delete-emp.component'
+import { DeleteEmpComponent } from './delete-emp/delete-emp.component';
+import { PostEmpComponent } from './post-emp/post-emp.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     GetFormComponent,
     EditFormComponent,
-    DeleteEmpComponent
+    DeleteEmpComponent,
+    PostEmpComponent
   ],
   imports: [
     BrowserModule,
