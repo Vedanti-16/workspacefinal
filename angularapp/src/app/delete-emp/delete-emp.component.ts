@@ -22,7 +22,7 @@ export class DeleteEmpComponent implements OnInit {
       err => {
         console.log(err);
       })
-      this.route.navigate(['/', ' ']);
+      this.route.navigate(['/','']);
    }
 
   ngOnInit() {

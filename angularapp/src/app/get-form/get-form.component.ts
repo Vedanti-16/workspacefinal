@@ -15,11 +15,6 @@ export class GetFormComponent implements OnInit {
 
   constructor(private http:BackendService, route:Router) {
     this.http.getData().subscribe(data=>this.empdata = data);
-   }
-
-   handledelete(id:number){
-    this.http.deleteData(id).subscribe()
-    this.route.navigate(['']);
   }
 
   ngOnInit() {
