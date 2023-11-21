@@ -26,8 +26,6 @@ export class PostEmpComponent implements OnInit {
   })
 
   handlepost(){
-    this.http.postData(this.postform.value).subscribe(() => {
-      this.route.navigate(['']);
-  })
-
+    this.http.postData(this.postform.value).subscribe((success) =>{ this.route.navigate([''])})
   }
+}

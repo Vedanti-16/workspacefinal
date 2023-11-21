@@ -30,10 +30,10 @@ export class BackendService {
   }
 
   deleteData(id:number):Observable<number>{
-    return this.http.delete<number>(this.url+"/deletedata/"+id,{headers:this.httpHeaders});
+    return this.http.delete<number>(this.url+"/deletedata/"+"?id=",{headers:this.httpHeaders});
   }
 
-  postData(data:IEmployee){
-    this.http.post(this.url,data,{headers:this.httpHeaders})
+  postData(data:IEmployee) : Observable<IEmployee>{
+    return this.http.post<IEmployee>(this.url,data,{headers:this.httpHeaders});
   }
 }
