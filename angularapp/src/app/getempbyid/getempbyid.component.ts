@@ -10,14 +10,14 @@ import { IEmployee } from '../employee';
 })
 export class GetempbyidComponent implements OnInit {
 
-  empdata:any[] = [];
+  empdata:any;
+  emp_id:number;
 
   constructor(private http:BackendService, private route:Router, private ar:ActivatedRoute) {
     let eid = parseInt(this.ar.snapshot.paramMap.get("employeeId"));
     this.http.getById(eid).subscribe((success) => {
       this.empdata = success;
     })
-    this.route.navigate(['']);
    }
 
   ngOnInit() {
