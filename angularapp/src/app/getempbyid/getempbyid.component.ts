@@ -21,8 +21,7 @@ export class GetempbyidComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
-
-
 
 }
