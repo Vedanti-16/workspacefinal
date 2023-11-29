@@ -24,7 +24,7 @@ export class EnquiryFormComponent implements OnInit {
       enquiryDate: ['', Validators.required],
       title: ['', Validators.required],
       description: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      emailId: ['', [Validators.required, Validators.email]],
       enquiryType: ['', Validators.required],
       courseName: ['', Validators.required]
     });
