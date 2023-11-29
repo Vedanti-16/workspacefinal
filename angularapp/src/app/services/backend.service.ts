@@ -43,32 +43,32 @@ export class BackendService {
 
   // ================
 
-  public ApiURL = ""
+  public ApiURL = "https://8080-cebeeadaaadfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/"
  
   httpOptions = { headers: new HttpHeaders({ 'Content-type': 'application/json' }) }
  
   getCourses(): Observable<any>
   {
-    return this.http.get<any>(this.url)
+    return this.http.get<any>(this.ApiURL)
   }
 
   getCourse(id:number):Observable<any>
   {
-    return this.http.get<any>(this.url+"/"+id)
+    return this.http.get<any>(this.ApiURL+"/"+id)
   }
  
   createCourse(course:any):Observable<any>
   {
-    return this.http.post<any>(this.url , this.httpOptions)
+    return this.http.post<any>(this.ApiURL,course,this.httpOptions)
   }
  
   deleteCourse(id:number):Observable<any>
   {
-    return this.http.delete<any>(this.url+"/"+id)
+    return this.http.delete<any>(this.ApiURL+"/"+id)
   }
  
   updateCourse(id:number,course:any):Observable<any>
   {
-    return this.http.put<any>(this.url+"/"+course.id,course,this.httpOptions)
+    return this.http.put<any>(this.ApiURL+"/"+course.id,course,this.httpOptions)
   }    
 }
