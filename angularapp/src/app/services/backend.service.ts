@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IEmployee } from '../employee';
+import { Enquiry } from '../enquiry';
 
 @Injectable({
   providedIn: 'root'
@@ -47,9 +48,9 @@ export class BackendService {
  
   httpOptions = { headers: new HttpHeaders({ 'Content-type': 'application/json' }) }
  
-  getCourses(): Observable<any>
+  getCourses(): Observable<Enquiry>
   {
-    return this.http.get<any>(this.ApiURL)
+    return this.http.get<Enquiry>(this.ApiURL)
   }
 
   getCourse(id:number):Observable<any>
