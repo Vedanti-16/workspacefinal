@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let enquiry of enquiries">
+            <td>{{ enquiry.id }}</td>
+            <td>{{ enquiry.title }}</td>
+            <td>{{ enquiry.description }}</td>
+            <td>
+              <button class="btn btn-info btn-sm" (click)="editEnquiry(enquiry.id)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteEnquiry(enquiry.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
