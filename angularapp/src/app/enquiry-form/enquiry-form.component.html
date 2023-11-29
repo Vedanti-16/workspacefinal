@@ -1,52 +1,70 @@
+<div>
+    <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit(enquiryForm)">
 
-        <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit(enquiryForm)">
-            <div style="padding: 50px;">
-                <h2 style="font-family: 'Times New Roman', Times, serif;"><b>Enquiry Form</b></h2>
-          <div>
-            <label for="enquiryDate">Enquiry Date:</label>
-            <input type="date" id="enquiryDate" formControlName="enquiryDate" class="form-control" required>
-            <div *ngIf="enquiryForm.get('enquiryDate').hasError('required') && enquiryForm.get('enquiryDate').touched">Enquiry Date is required.</div>
-          </div>
-  
-          <div>
-            <label for="title">Title:</label>
-            <input name="title" type="text" id="title" formControlName="title" class="form-control" required>
-            <div *ngIf="enquiryForm.get('title').hasError('required') && enquiryForm.get('title').touched">
-                Title is required.
+        <div>
+            <div>
+                <label for="enquiryDate">Enquiry Date:</label>
+                <input type="date" id="enquiryDate" formControlName="enquiryDate" class="form-control" required>
+                <div
+                    *ngIf="enquiryForm.get('enquiryDate').hasError('required') && enquiryForm.get('enquiryDate').touched">
+                    Enquiry Date is required.</div>
             </div>
-          </div>
-  
-          <div>
-            <label for="description">Description:</label>
-            <textarea id="description" formControlName="description" class="form-control" required></textarea>
-            <div *ngIf="enquiryForm.get('description').hasError('required') && enquiryForm.get('description').touched">Description is required.</div>
-          </div>
-  
-          <div>
-            <label for="email">Email ID:</label>
-            <input type="email" id="email" formControlName="email" class="form-control" required>
-            <div *ngIf="enquiryForm.get('email').hasError('required')" class="invalid-feedback">Valid Email ID is required.</div>
-            <div *ngIf="enquiryForm.get('email').hasError('email')" class="invalid-feedback">Enter a valid email address.</div>
-          </div>
-  
-          <div>
-            <label for="enquiryType">Enquiry Type:</label>
-            <select id="enquiryType" formControlName="enquiryType" class="form-control" required>
-              <option *ngFor="let type of enquiryTypes" [value]="type">{{ type }}</option>
-            </select>
-            <div *ngIf="enquiryForm.get('enquiryType').hasError('required')" class="invalid-feedback">Enquiry Type is required.</div>
-          </div>
-  
-          <div>
-            <label for="courseName">Course Name:</label>
-            <select id="courseName" formControlName="courseName" class="form-control" required>
-              <option *ngFor="let course of courseNames" [value]="course">{{ course }}</option>
-            </select>
-            <div *ngIf="enquiryForm.get('courseName').hasError('required')" class="invalid-feedback">Course Name is required.</div>
-          </div>
-  
-          <button type="submit" class="btn btn-success" [disabled]="enquiryForm.invalid">Add Course</button>
+            <br>
+
+            <div>
+                <label for="title">Title:</label>
+                <input name="title" type="text" id="title" formControlName="title" class="form-control" required>
+                <div style="color: red;"
+                    *ngIf="enquiryForm.get('title').hasError('required') && enquiryForm.get('title').touched">
+                    Title is required.
+                </div>
+            </div>
+            <br>
+
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" formControlName="description" class="form-control"
+                    required></textarea>
+                <div style="color: red;"
+                    *ngIf="enquiryForm.get('description').hasError('required') && enquiryForm.get('description').touched">
+                    Description is required.</div>
+            </div>
+            <br>
+
+            <div>
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" formControlName="email" class="form-control" required>
+                <div style="color: red;"
+                    *ngIf="enquiryForm.get('email').hasError('required') && enquiryForm.get('email').touched">Valid
+                    Email ID is required.</div>
+                <div style="color: red;" *ngIf="enquiryForm.get('email').hasError('email')" class="invalid-feedback">
+                    Enter a valid email address.</div>
+            </div>
+            <br>
+
+            <div>
+                <label for="enquiryType">Enquiry Type:</label>
+                <select id="enquiryType" name="enquiryType" formControlName="enquiryType" class="form-control" required>
+                    <option *ngFor="let type of enquiryTypes" [value]="type">{{ type }}</option>
+                </select>
+                <div style="color: red;" *ngIf="enquiryForm.get('enquiryType').hasError('required')"
+                    class="invalid-feedback">Enquiry Type is required.</div>
+            </div>
+            <br>
+
+            <div>
+                <label for="courseName">Course Name:</label>
+                <select id="courseName" name="courseName" formControlName="courseName" class="form-control" required>
+                    <option *ngFor="let course of courseNames" [value]="course">{{ course }}</option>
+                </select>
+                <div style="color: red;" *ngIf="enquiryForm.get('courseName').hasError('required')"
+                    class="invalid-feedback">Course Name is required.</div>
+            </div>
+            <br>
+
+            <button type="submit" class="btn btn-success" [disabled]="enquiryForm.invalid">Add Course</button>
         </div>
-        </form>
-     
-   
+
+</form>
+</div>
+
