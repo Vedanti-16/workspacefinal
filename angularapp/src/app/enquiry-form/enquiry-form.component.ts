@@ -31,6 +31,7 @@ export class EnquiryFormComponent implements OnInit {
 
   onSubmit() {
     // Handle form submission here, you can access form values using this.enquiryForm.value
+    
     console.log(this.enquiryForm.value);
   }
 }

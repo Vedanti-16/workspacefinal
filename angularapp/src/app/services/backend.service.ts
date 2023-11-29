@@ -40,4 +40,35 @@ export class BackendService {
   getById(id:number) : Observable<any>{
     return this.http.get<any>(this.url+"/getbyid/"+id,{headers:this.httpHeaders})
   }
+
+  // ================
+
+  public ApiURL = ""
+ 
+  httpOptions = { headers: new HttpHeaders({ 'Content-type': 'application/json' }) }
+ 
+  getCourses(): Observable<any>
+  {
+    return this.http.get<any>(this.url)
+  }
+
+  getCourse(id:number):Observable<any>
+  {
+    return this.http.get<any>(this.url+"/"+id)
+  }
+ 
+  createCourse(course:any):Observable<any>
+  {
+    return this.http.post<any>(this.url , this.httpOptions)
+  }
+ 
+  deleteCourse(id:number):Observable<any>
+  {
+    return this.http.delete<any>(this.url+"/"+id)
+  }
+ 
+  updateCourse(id:number,course:any):Observable<any>
+  {
+    return this.http.put<any>(this.url+"/"+course.id,course,this.httpOptions)
+  }    
 }
