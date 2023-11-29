@@ -9,7 +9,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { DeleteEmpComponent } from './delete-emp/delete-emp.component';
 import { PostEmpComponent } from './post-emp/post-emp.component';
-import { GetempbyidComponent } from './getempbyid/getempbyid.component'
+import { GetempbyidComponent } from './getempbyid/getempbyid.component';
+import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { GetempbyidComponent } from './getempbyid/getempbyid.component'
     EditFormComponent,
     DeleteEmpComponent,
     PostEmpComponent,
-    GetempbyidComponent
+    GetempbyidComponent,
+    EnquiryFormComponent
   ],
   imports: [
     BrowserModule,
