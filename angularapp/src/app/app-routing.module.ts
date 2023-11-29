@@ -8,7 +8,7 @@ import { GetempbyidComponent } from './getempbyid/getempbyid.component';
 
 
 const routes: Routes = [
-  {path:'',component:GetFormComponent},
+  // {path:'',component:GetFormComponent},
   {path:'editlink/:employeeId',component:EditFormComponent},
   {path:'deletelink/:employeeId',component:DeleteEmpComponent},
   {path:'addemplink',component:PostEmpComponent},
