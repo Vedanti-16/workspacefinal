@@ -1,0 +1,38 @@
+<form [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="enquiryDate">Enquiry Date:</label>
+      <input type="date" id="enquiryDate" formControlName="enquiryDate">
+    </div>
+  
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" formControlName="title">
+    </div>
+  
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+  
+    <div>
+      <label for="email">Email ID:</label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+  
+    <div>
+      <label for="enquiryType">Enquiry Type:</label>
+      <select id="enquiryType" formControlName="enquiryType">
+        <option *ngFor="let type of enquiryTypes" [value]="type">{{ type }}</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="courseName">Course Name:</label>
+      <select id="courseName" formControlName="courseName">
+        <option *ngFor="let course of courseNames" [value]="course">{{ course }}</option>
+      </select>
+    </div>
+  
+    <button type="submit" [disabled]="enquiryForm.invalid">Submit</button>
+  </form>
+  
