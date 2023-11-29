@@ -43,7 +43,7 @@ export class BackendService {
 
   // ================
 
-  public ApiURL = "https://8080-cebeeadaaadfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/"
+  public ApiURL = "https://8080-cebeeadaaadfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Enquiry"
  
   httpOptions = { headers: new HttpHeaders({ 'Content-type': 'application/json' }) }
  
