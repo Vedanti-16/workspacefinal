@@ -22,7 +22,6 @@ export class EnquiryFormComponent implements OnInit {
   createEnquiryForm() {
     this.enquiryForm = this.fb.group({
       enquiryDate: ['', Validators.required],
-      title: ['', Validators.required],
       description: ['', Validators.required],
       emailId: ['', [Validators.required, Validators.email]],
       enquiryType: ['', Validators.required],
@@ -32,7 +31,7 @@ export class EnquiryFormComponent implements OnInit {
 
   onSubmit() {
     // Handle form submission here, you can access form values using this.enquiryForm.value
-    this.service.createCourse(this.enquiryForm.value).subscribe();
+    this.service.createEnquiry(this.enquiryForm.value).subscribe();
     console.log(this.enquiryForm.value);
   }
 }

@@ -48,31 +48,15 @@ export class BackendService {
  
   httpOptions = { headers: new HttpHeaders({ 'Content-type': 'application/json' }) }
  
-  getCourses(): Observable<Enquiry>
+  getEnquiries(): Observable<any>
   {
-    return this.http.get<Enquiry>(this.ApiURL)
-  }
-
-  getCourse(id:number):Observable<any>
-  {
-    return this.http.get<any>(this.ApiURL+"/"+id)
+    return this.http.get<any>(this.ApiURL)
   }
  
-  createCourse(course:any):Observable<any>
+  createEnquiry(enquiry:any):Observable<any>
   {
-    return this.http.post<any>(this.ApiURL,course,this.httpOptions)
+    return this.http.post<any>(this.ApiURL,enquiry,this.httpOptions)
   }
- 
-  deleteCourse(id:number):Observable<any>
-  {
-    return this.http.delete<any>(this.ApiURL+"/"+id)
-  }
- 
-  updateCourse(id:number,course:any):Observable<any>
-  {
-    return this.http.put<any>(this.ApiURL+"/"+course.id,course,this.httpOptions)
-  }   
-  
   
 
   //===============================================================
