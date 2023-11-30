@@ -33,11 +33,11 @@ export class EnquiryFormComponent implements OnInit {
     this.enquiryForm = this.fb.group({
       enquiryDate: ['', Validators.required],
       description: ['', Validators.required],
-      emailId: ['', [Validators.required, Validators.email]],
+      //emailId: ['', [Validators.required, Validators.email]],
       enquiryType: ['', Validators.required],
       courseName: ['', Validators.required],
       title:null,
-      studentId:null,
+      studentId:0,
       isDeleted:true
 
     });

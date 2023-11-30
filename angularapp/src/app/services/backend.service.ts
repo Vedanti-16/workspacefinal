@@ -42,7 +42,7 @@ export class BackendService {
     return this.http.get<any>(this.url+"/getbyid/"+id,{headers:this.httpHeaders})
   }
 
-  // ================
+  // ============================================================================================
 
   public ApiURL = "https://8080-cabbaacddbbbfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api"
  
@@ -55,7 +55,7 @@ export class BackendService {
  
   createEnquiry(enquiry:any):Observable<any>
   {
-    return this.http.post<any>(this.ApiURL,enquiry,this.httpOptions)
+    return this.http.post<any>(this.ApiURL+"/course/enquiry",enquiry,this.httpOptions)
   }
   
 
