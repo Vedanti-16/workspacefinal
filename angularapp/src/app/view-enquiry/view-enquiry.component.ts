@@ -14,7 +14,8 @@ export class ViewEnquiryComponent implements OnInit {
   //   { id: 2, title: 'Enquiry 2', description: 'Description 2' },
   //   // Add more sample data or replace it with actual data from your API
   // ];
-  enquiries:Enquiry;
+
+  enquiries:any[]
 
   constructor(private service:BackendService) { }
 
