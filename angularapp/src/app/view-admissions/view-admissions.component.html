@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Course Name</th>
+              <th>Description</th>
+              <th>Email ID</th>
+              <th>EnquiryType</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let enquiry of enquiries">
+              <td>{{ enquiry.courseName }}</td>
+              <td>{{ enquiry.description }}</td>
+              <td>{{ enquiry.emailId }}</td>
+              <td>{{ enquiry.enquiryType }}</td>
+              <td>
+                <button class="btn btn-success btn-sm" (click)="editEnquiry(enquiry.id)">Edit</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteEnquiry(enquiry.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -11,7 +11,9 @@ import { DeleteEmpComponent } from './delete-emp/delete-emp.component';
 import { PostEmpComponent } from './post-emp/post-emp.component';
 import { GetempbyidComponent } from './getempbyid/getempbyid.component';
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
-import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component'
+import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component';
+import { ViewAdmissionsComponent } from './view-admissions/view-admissions.component';
+import { CreateAdmissionsComponent } from './create-admissions/create-admissions.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component'
     PostEmpComponent,
     GetempbyidComponent,
     EnquiryFormComponent,
-    ViewEnquiryComponent
+    ViewEnquiryComponent,
+    ViewAdmissionsComponent,
+    CreateAdmissionsComponent
   ],
   imports: [
     BrowserModule,
