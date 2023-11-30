@@ -18,7 +18,7 @@
             <div>
                 <label for="courseName">Course Name:</label>
                 <select id="courseName" name="courseName" formControlName="courseName" class="form-control" required>
-                    <option *ngFor="let course of courseNames" [value]="course">{{ course }}</option>
+                    <option *ngFor="let course of courseData" [value]="course">{{ course.courseName }}</option>
                 </select>
                 <div style="color: red;" *ngIf="enquiryForm.get('courseName').hasError('required')"
                     class="invalid-feedback">Course Name is required.</div>
@@ -55,7 +55,6 @@
                     class="invalid-feedback">Enquiry Type is required.</div>
             </div>
             <br>
-
             
 
             <button type="submit" class="btn btn-success" [disabled]="enquiryForm.invalid">Add Enquiry</button>

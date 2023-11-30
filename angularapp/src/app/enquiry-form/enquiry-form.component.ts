@@ -17,6 +17,10 @@ export class EnquiryFormComponent implements OnInit {
 
   ngOnInit() {
     this.createEnquiryForm();
+
+    this.service.getCourses().subscribe((data) => {
+      const courseData = data
+    })
   }
 
   createEnquiryForm() {

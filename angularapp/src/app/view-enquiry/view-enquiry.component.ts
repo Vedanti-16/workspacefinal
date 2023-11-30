@@ -19,14 +19,14 @@ export class ViewEnquiryComponent implements OnInit {
   constructor(private service:BackendService) { }
 
   ngOnInit() {
-    this.service.getCourses()
+    this.service.getEnquiries()
     .subscribe((data) => {
       this.enquiries = data;
     });
   }
 
   editEnquiry(){
-    
+
   }
 }
 

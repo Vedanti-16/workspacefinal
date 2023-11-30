@@ -44,13 +44,13 @@ export class BackendService {
 
   // ================
 
-  public ApiURL = "https://8080-cebeeadaaadfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Enquiry"
+  public ApiURL = "https://8080-cabbaacddbbbfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api"
  
   httpOptions = { headers: new HttpHeaders({ 'Content-type': 'application/json' }) }
  
   getEnquiries(): Observable<any>
   {
-    return this.http.get<any>(this.ApiURL)
+    return this.http.get<any>(this.ApiURL + "/enquiry");
   }
  
   createEnquiry(enquiry:any):Observable<any>
@@ -61,29 +61,28 @@ export class BackendService {
 
   //===============================================================
 
-  public ApiURLAdmission = "https://8080-cebeeadaaadfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Enquiry"
 
-  getAdmissions(): Observable<Enquiry>
+  getCourses(): Observable<any>
   {
-    return this.http.get<Enquiry>(this.ApiURL)
+    return this.http.get<any>(this.ApiURL+"/course");
   }
 
-  getAdmission(id:number):Observable<any>
+  getCourse(id:number):Observable<any>
   {
     return this.http.get<any>(this.ApiURL+"/"+id)
   }
  
-  createAddmission(course:any):Observable<any>
+  createCourse(course:any):Observable<any>
   {
     return this.http.post<any>(this.ApiURL,course,this.httpOptions)
   }
  
-  deleteAdmission(id:number):Observable<any>
+  deleteCourse(id:number):Observable<any>
   {
     return this.http.delete<any>(this.ApiURL+"/"+id)
   }
  
-  updateAdmission(id:number,course:any):Observable<any>
+  updateCourse(id:number,course:any):Observable<any>
   {
     return this.http.put<any>(this.ApiURL+"/"+course.id,course,this.httpOptions)
   }   
