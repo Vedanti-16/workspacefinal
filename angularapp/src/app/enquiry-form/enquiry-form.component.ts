@@ -10,8 +10,10 @@ import { BackendService } from '../services/backend.service';
 export class EnquiryFormComponent implements OnInit {
   enquiryForm: FormGroup;
 
-  enquiryTypes: string[] = ['General', 'Admission', 'Technical Support']; // Add more if needed
-  courseNames: string[] = ['Course A', 'Course B', 'Course C']; // Add actual course names
+  // enquiryTypes: string[] = ['General', 'Admission', 'Technical Support']; // Add more if needed
+  courseData: any;
+  EnquiryData: any;
+  // courseNames: string[] = ['Course A', 'Course B', 'Course C']; // Add actual course names
 
   constructor(private fb: FormBuilder, private service:BackendService) { }
 
@@ -19,7 +21,11 @@ export class EnquiryFormComponent implements OnInit {
     this.createEnquiryForm();
 
     this.service.getCourses().subscribe((data) => {
-      const courseData = data
+      this.courseData = data
+    })
+
+    this.service.getEnquiries().subscribe((data) => {
+      this.EnquiryData = data
     })
   }
 
@@ -29,7 +35,11 @@ export class EnquiryFormComponent implements OnInit {
       description: ['', Validators.required],
       emailId: ['', [Validators.required, Validators.email]],
       enquiryType: ['', Validators.required],
-      courseName: ['', Validators.required]
+      courseName: ['', Validators.required],
+      title:null,
+      studentId:null,
+      isDeleted:true
+
     });
   }
 
