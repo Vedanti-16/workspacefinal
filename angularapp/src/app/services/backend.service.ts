@@ -71,5 +71,37 @@ export class BackendService {
   updateCourse(id:number,course:any):Observable<any>
   {
     return this.http.put<any>(this.ApiURL+"/"+course.id,course,this.httpOptions)
-  }    
+  }   
+  
+  
+
+  //===============================================================
+
+  public ApiURLAdmission = "https://8080-cebeeadaaadfabcaaaceeafebeccaddbefddaf.premiumproject.examly.io/api/Enquiry"
+
+  getAdmissions(): Observable<Enquiry>
+  {
+    return this.http.get<Enquiry>(this.ApiURL)
+  }
+
+  getAdmission(id:number):Observable<any>
+  {
+    return this.http.get<any>(this.ApiURL+"/"+id)
+  }
+ 
+  createAddmission(course:any):Observable<any>
+  {
+    return this.http.post<any>(this.ApiURL,course,this.httpOptions)
+  }
+ 
+  deleteAdmission(id:number):Observable<any>
+  {
+    return this.http.delete<any>(this.ApiURL+"/"+id)
+  }
+ 
+  updateAdmission(id:number,course:any):Observable<any>
+  {
+    return this.http.put<any>(this.ApiURL+"/"+course.id,course,this.httpOptions)
+  }   
+  
 }
