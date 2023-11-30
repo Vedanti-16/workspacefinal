@@ -24,5 +24,7 @@ export class ViewEnquiryComponent implements OnInit {
       this.enquiries = data;
     });
   }
+
+  editEnquiry()
 }
 
