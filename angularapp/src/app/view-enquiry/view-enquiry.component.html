@@ -4,25 +4,27 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Enquiry Id</th>
+            <th>Enquiry Date</th>
             <th>Title</th>
             <th>Description</th>
-            <th>Email</th>
-            <th>Enquiry Type</th>
+            <th>Email ID</th>
+            <th>EnquiryType</th>
             <th>Course Name</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let enquiry of enquiries">
+            <td>{{ enquiry.enquiryID}}</td>
             <td>{{ enquiry.enquiryDate }}</td>
             <td>{{ enquiry.title }}</td>
             <td>{{ enquiry.description }}</td>
             <td>{{ enquiry.emailId }}</td>
             <td>{{ enquiry.enquiryType }}</td>
             <td>{{ enquiry.courseName }}</td>
-            <td>editEnquiry
-              <button class="btn btn-info btn-sm" (click)="editEnquiry(enquiry.id)">Edit</button>
+            <td>
+              <button class="btn btn-success btn-sm" (click)="editEnquiry(enquiry.id)">Edit</button>
               <button class="btn btn-danger btn-sm" (click)="deleteEnquiry(enquiry.id)">Delete</button>
             </td>
           </tr>
