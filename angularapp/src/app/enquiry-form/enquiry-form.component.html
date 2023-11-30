@@ -46,6 +46,8 @@
             </div>
             <br> -->
 
+
+
             <div>
                 <label for="enquiryType">Enquiry Type:</label>
                 <select id="enquiryType" name="enquiryType" formControlName="enquiryType" class="form-control" required>
@@ -55,6 +57,19 @@
                     class="invalid-feedback">Enquiry Type is required.</div>
             </div>
             <br>
+
+
+            <div>
+                <input type="text" id="title" formControlName="title" class="form-control" readonly hidden>
+            </div>
+
+            <div>
+                <input type="number" id="studentId" formControlName="studentId" class="form-control" readonly hidden>
+            </div>
+
+            <div>
+                <input type="text" id="studentId" formControlName="studentId" class="form-control" readonly hidden>
+            </div>
             
 
             <button type="submit" class="btn btn-success" [disabled]="enquiryForm.invalid">Add Enquiry</button>
