@@ -22,12 +22,11 @@ export class ProjectService {
 
   deleteCourseByAdmin(courseId: number): Observable<any> {
     return this.http.delete<any>(this.apiURL);
-  }``
+  }
 
   updateCourseByAdmin(courseId: number, courseData: any): Observable<any> {
     return this.http.put<any>(this.apiURL+"/"+courseId,courseData);
   }
-
 
   getStudentCourses(): Observable<any>{
     return this.http.get<any>(this.apiURL)
