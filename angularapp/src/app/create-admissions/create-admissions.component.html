@@ -19,7 +19,7 @@
             <div>
                 <label for="courseName">Course Name:</label>
                 <select id="courseName" name="courseName" formControlName="courseName" class="form-control" required>
-                    <option *ngFor="let course of courseData" [value]="course">{{ course.courseName }}</option>
+                    <option *ngFor="let course of courseData1" [value]="course">{{ course.courseName }}</option>
                 </select>
                 <div style="color: red;" *ngIf="AdmissionForm.get('courseName').hasError('required')"
                     class="invalid-feedback">Course Name is required.</div>

@@ -12,9 +12,10 @@ export class CreateAdmissionsComponent implements OnInit {
   modes = ["UPI","Card"];
   AdmissionForm:any;
   courseData: any;
+  courseData1=["Java","Android","Dotnet"]
 
   constructor(private http:BackendService, private fb:FormBuilder) { 
-
+    
   }
 
   createAdmissionForm(){
@@ -36,6 +37,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.http.getCourses().subscribe((data) => {
       this.courseData = data
     })
+
 
     this.http.postPayments(this.AdmissionForm.value).subscribe()
   }
