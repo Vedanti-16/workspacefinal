@@ -1,1 +1,54 @@
-<p>create-admissions works!</p>
+<div style="padding-left: 150px;padding-right: 150px;padding-top: 50px; padding-bottom: 50px;">
+    <h2 style="font-family: 'Times New Roman', Times, serif;"><b>Admission Form</b></h2>
+    <br>
+
+
+    <form style="padding: 40px; border-style: groove; border-radius: 5px;" [formGroup]="enquiryForm" (ngSubmit)="onSubmit(enquiryForm)">
+
+        <div>
+
+            <div>
+                <label for="userId">User ID</label>
+                <input type="number" id="userId" formControlName="userId" class="form-control" required>
+                <div
+                    *ngIf="enquiryForm.get('userId').hasError('required') && enquiryForm.get('userId').touched">
+                    User ID is required.</div>
+            </div>
+            <br>
+
+            <div>
+                <label for="courseName">Course Name:</label>
+                <select id="courseName" name="courseName" formControlName="courseName" class="form-control" required>
+                    <option *ngFor="let course of courseData" [value]="course">{{ course.courseName }}</option>
+                </select>
+                <div style="color: red;" *ngIf="enquiryForm.get('courseName').hasError('required')"
+                    class="invalid-feedback">Course Name is required.</div>
+            </div>
+            <br>
+
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" formControlName="description" class="form-control"
+                    required></textarea>
+                <div style="color: red;"
+                    *ngIf="enquiryForm.get('description').hasError('required') && enquiryForm.get('description').touched">
+                    Description is required.</div>
+            </div>
+            <br>
+
+            <div>
+                <label for="enquiryType">Enquiry Type:</label>
+                <select id="enquiryType" name="enquiryType" formControlName="enquiryType" class="form-control" required>
+                    <option *ngFor="let type of EnquiryData" [value]="type">{{ type.enquiryType }}</option>
+                </select>
+                <div style="color: red;" *ngIf="enquiryForm.get('enquiryType').hasError('required')"
+                    class="invalid-feedback">Enquiry Type is required.</div>
+            </div>
+            <br>
+
+            <button type="submit" class="btn btn-dark" [disabled]="enquiryForm.invalid">Add Enquiry</button>
+        </div>
+
+    </form>
+
+</div>

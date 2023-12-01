@@ -34,7 +34,7 @@ export class ProjectService {
     return this.http.get<any>(`${this.apiUrl}/api/student/course`)
   }
 
-  //-------------------------
+  //-------------------------ENQUIRIES------------------------------------
 
   getAllEnquiriesByAdmin() : Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/api/enquiry`);
@@ -42,6 +42,11 @@ export class ProjectService {
 
   getEnquiryByAdmin(enquiryId: number): Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/api/enquiry/${enquiryId}`);
+  }
+
+  
+  getEnquiriesByUser(userId: number): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/api/user/${userId}`)
   }
 
 
