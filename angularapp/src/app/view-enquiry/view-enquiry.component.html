@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <div class="row">
     <div class="col-md-12">
       <table class="table table-bordered">
@@ -13,10 +13,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let enquiry of enquiries">
-            <td>{{ enquiry.courseName }}</td>
-            <td>{{ enquiry.description }}</td>
-            <td>{{ enquiry.emailId }}</td>
-            <td>{{ enquiry.enquiryType }}</td>
+
             <td>
               <button class="btn btn-secondary btn-sm" (click)="editEnquiry(enquiry.id)">Edit</button>
               <button class="btn btn-dark btn-sm" (click)="deleteEnquiry(enquiry.id)">Delete</button>
@@ -26,5 +23,33 @@
       </table>
     </div>
   </div>
-</div>
+</div> -->
 
+
+<div style="padding: 100px;">
+  <div style="border-style: double;">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Course Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Email ID</th>
+          <th scope="col">EnquiryType</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let enquiry of enquiries">
+
+          <td>{{ enquiry.courseName }}</td>
+          <td>{{ enquiry.description }}</td>
+          <td>{{ enquiry.emailId }}</td>
+          <td>{{ enquiry.enquiryType }}</td>
+          <td><button type="submit" class="btn btn-secondary">Edit</button> &nbsp; &nbsp;
+            <button type="submit" class="btn btn-dark">Delete</button>
+          </td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
