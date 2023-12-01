@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace projectapi.Models
 {
-    public class Admission
+    public class Payment
     {
         public int AdmissionId { get; set; }
         public int CourseId { get; set; }
