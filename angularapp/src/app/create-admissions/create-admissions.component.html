@@ -28,8 +28,7 @@
 
             <div>
                 <label for="amount">Total Amount:</label>
-                <input id="amount" name="amount" formControlName="amount" class="form-control"
-                    required></input>
+                <input id="amount" name="amount" formControlName="amount" class="form-control" required></input>
                 <div style="color: red;"
                     *ngIf="enquiryForm.get('amount').hasError('required') && enquiryForm.get('amount').touched">
                     Total Amount is required.</div>
