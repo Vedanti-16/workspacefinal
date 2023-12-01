@@ -11,6 +11,7 @@ namespace projectapi.Models
         public int AdmissionId { get; set; }
         public int CourseId { get; set; }
         public int UserId { get; set; }
+        public DateTime PaymentDate {get; set;}
         public int Amount {set; get;}
         public string? Mode {get; set;}
         public string? Status { get; set; }

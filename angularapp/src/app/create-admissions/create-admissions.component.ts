@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-create-admissions',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateAdmissionsComponent implements OnInit {
 
-  constructor() { }
+  modes = ["UPI","Card"];
+
+  constructor(private http:BackendService) { }
 
   ngOnInit() {
+
+    this.http.
   }
 
 }

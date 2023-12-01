@@ -3,7 +3,7 @@
     <br>
 
 
-    <form style="padding: 40px; border-style: groove; border-radius: 5px;" [formGroup]="enquiryForm" (ngSubmit)="onSubmit(enquiryForm)">
+    <form style="padding: 40px; border-style: groove; border-radius: 5px;" [formGroup]="AdmissionForm" (ngSubmit)="onSubmit(enquiryForm)">
 
         <div>
 
@@ -37,16 +37,26 @@
             <br>
 
             <div>
-                <label for="enquiryType">Enquiry Type:</label>
-                <select id="enquiryType" name="enquiryType" formControlName="enquiryType" class="form-control" required>
-                    <option *ngFor="let type of EnquiryData" [value]="type">{{ type.enquiryType }}</option>
+                <label for="mode">Mode of Payment:</label>
+                <select id="mode" name="mode" formControlName="mode" class="form-control" required>
+                    <option *ngFor="let mode of modes" [value]="mode">{{ mode }}</option>
                 </select>
-                <div style="color: red;" *ngIf="enquiryForm.get('enquiryType').hasError('required')"
-                    class="invalid-feedback">Enquiry Type is required.</div>
+                <div style="color: red;" *ngIf="enquiryForm.get('mode').hasError('required')"
+                    class="invalid-feedback">Mode of Payment is required.</div>
             </div>
             <br>
 
-            <button type="submit" class="btn btn-dark" [disabled]="enquiryForm.invalid">Add Enquiry</button>
+            <div>
+                <label for="paymentDate">Total Amount:</label>
+                <input id="paymentDate" name="paymentDate" formControlName="paymentDate" class="form-control"
+                    required></input>
+                <div style="color: red;"
+                    *ngIf="enquiryForm.get('paymentDate').hasError('required') && enquiryForm.get('paymentDate').touched">
+                    PaymentDate is required.</div>
+            </div>
+            <br>
+
+            <button type="submit" class="btn btn-dark" [disabled]="enquiryForm.invalid">Make Payment</button>
         </div>
 
     </form>
