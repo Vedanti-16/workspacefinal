@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using CourseApi.Models;
+using projectapi.Models;
  
 var builder = WebApplication.CreateBuilder(args);
  
@@ -16,7 +16,7 @@ builder.Services.AddSession(options=>
     options.IdleTimeout=TimeSpan.FromMinutes(10);
 });
  
-builder.Services.AddDbContext<AppDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyConString"));
 });

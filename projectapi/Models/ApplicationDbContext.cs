@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using projectapi.Models;
 
 namespace projectapi.Models
 {
-    public class AppDbContext
+    public class ApplicationDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions <AppDbContext> options):base(options)
+        public ApplicationDbContext(DbContextOptions <ApplicationDbContext> options):base(options)
         {
         }
         public virtual DbSet<Course> Courses {get;set;}
@@ -17,6 +19,5 @@ namespace projectapi.Models
         public virtual DbSet<Admission> Admissions {get;set;}
  
        
-    }
     }
 }
