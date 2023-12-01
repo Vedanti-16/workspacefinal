@@ -61,6 +61,8 @@ namespace projectapi.Controllers
 
         //----------------------------PUT PAYMENTS--------------------------------------
 
+        
+
         // [HttpPut("course/{id}")]
         // public IActionResult EditCourse(int id, [FromBody] Course course)
         // {
@@ -78,7 +80,7 @@ namespace projectapi.Controllers
         //         existingCourse.Description = course.Description;
         //         existingCourse.Duration = course.Duration;
         //         existingCourse.FeesAmount = course.FeesAmount;
-        //         existingCourse.ModifiedBy = course.ModifiedBy;
+        //         existingCourse.ModifiedBy = user.username;
  
         //         _db.SaveChanges();
  
