@@ -3,7 +3,7 @@
     <br>
 
 
-    <form style="padding: 40px; border-style: groove; border-radius: 5px;" [formGroup]="AdmissionForm" (ngSubmit)="onSubmit(enquiryForm)">
+    <form style="padding: 40px; border-style: groove; border-radius: 5px;" [formGroup]="AdmissionForm" (ngSubmit)="onSubmit(AdmissionForm)">
 
         <div>
 
@@ -11,7 +11,7 @@
                 <label for="userId">User ID</label>
                 <input type="number" id="userId" formControlName="userId" class="form-control" required>
                 <div
-                    *ngIf="enquiryForm.get('userId').hasError('required') && enquiryForm.get('userId').touched">
+                    *ngIf="AdmissionForm.get('userId').hasError('required') && AdmissionForm.get('userId').touched">
                     User ID is required.</div>
             </div>
             <br>
@@ -21,16 +21,16 @@
                 <select id="courseName" name="courseName" formControlName="courseName" class="form-control" required>
                     <option *ngFor="let course of courseData" [value]="course">{{ course.courseName }}</option>
                 </select>
-                <div style="color: red;" *ngIf="enquiryForm.get('courseName').hasError('required')"
+                <div style="color: red;" *ngIf="AdmissionForm.get('courseName').hasError('required')"
                     class="invalid-feedback">Course Name is required.</div>
             </div>
             <br>
 
             <div>
                 <label for="amount">Total Amount:</label>
-                <input id="amount" name="amount" formControlName="amount" class="form-control" required></input>
+                <input id="amount" name="amount" formControlName="amount" class="form-control" required>
                 <div style="color: red;"
-                    *ngIf="enquiryForm.get('amount').hasError('required') && enquiryForm.get('amount').touched">
+                    *ngIf="AdmissionForm.get('amount').hasError('required') && AdmissionForm.get('amount').touched">
                     Total Amount is required.</div>
             </div>
             <br>
@@ -38,19 +38,18 @@
             <div>
                 <label for="mode">Mode of Payment:</label>
                 <select id="mode" name="mode" formControlName="mode" class="form-control" required>
-                    <option *ngFor="let mode of modes" [value]="mode">{{ mode }}</option>
+                    <option *ngFor="let mode of modes">{{ mode }}</option>
                 </select>
-                <div style="color: red;" *ngIf="enquiryForm.get('mode').hasError('required')"
+                <div style="color: red;" *ngIf="AdmissionForm.get('mode').hasError('required')"
                     class="invalid-feedback">Mode of Payment is required.</div>
             </div>
             <br>
 
             <div>
-                <label for="paymentDate">Total Amount:</label>
-                <input id="paymentDate" name="paymentDate" formControlName="paymentDate" class="form-control"
-                    required></input>
+                <label for="paymentDate">Payment Date:</label>
+                <input type="date" id="paymentDate" name="paymentDate" formControlName="paymentDate" class="form-control" required/>
                 <div style="color: red;"
-                    *ngIf="enquiryForm.get('paymentDate').hasError('required') && enquiryForm.get('paymentDate').touched">
+                    *ngIf="AdmissionForm.get('paymentDate').hasError('required') && AdmissionForm.get('paymentDate').touched">
                     PaymentDate is required.</div>
             </div>
             <br>

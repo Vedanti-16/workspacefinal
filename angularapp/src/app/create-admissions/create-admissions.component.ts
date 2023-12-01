@@ -29,7 +29,9 @@ export class CreateAdmissionsComponent implements OnInit {
   ngOnInit() {
 
     this.createAdmissionForm();
+  }
 
+  onSubmit(){
     this.http.postPayments(this.AdmissionForm.value).subscribe(()=>{
 
     })
