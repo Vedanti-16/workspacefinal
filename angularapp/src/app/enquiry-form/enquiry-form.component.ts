@@ -39,7 +39,6 @@ export class EnquiryFormComponent implements OnInit {
       title:[""],
       studentId:[0],
       isDeleted:[true]
-
     });
   }
 
