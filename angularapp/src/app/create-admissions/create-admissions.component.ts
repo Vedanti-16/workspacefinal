@@ -14,7 +14,7 @@ export class CreateAdmissionsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.
+    this.http.postPayments()
   }
 
 }

@@ -96,7 +96,7 @@ export class BackendService {
   }
 
   postPayments(payment:any) : Observable<any>{
-    
+    return this.http.post<any>(this.api+"/make-payment",payment);
   }
 
 }
