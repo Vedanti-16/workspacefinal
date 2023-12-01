@@ -13,7 +13,8 @@ import { GetempbyidComponent } from './getempbyid/getempbyid.component';
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component';
 import { ViewAdmissionsComponent } from './view-admissions/view-admissions.component';
-import { CreateAdmissionsComponent } from './create-admissions/create-admissions.component'
+import { CreateAdmissionsComponent } from './create-admissions/create-admissions.component';
+import { StudentNavComponent } from './student-nav/student-nav.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CreateAdmissionsComponent } from './create-admissions/create-admissions
     EnquiryFormComponent,
     ViewEnquiryComponent,
     ViewAdmissionsComponent,
-    CreateAdmissionsComponent
+    CreateAdmissionsComponent,
+    StudentNavComponent
   ],
   imports: [
     BrowserModule,
