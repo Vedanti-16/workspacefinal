@@ -8,6 +8,8 @@ import { BackendService } from '../services/backend.service';
 })
 export class ViewAdmissionsComponent implements OnInit {
 
+  status = ["Pending", "Accepted"];
+
   constructor(private http:BackendService) { }
 
   ngOnInit() {
