@@ -27,12 +27,12 @@
             <br>
 
             <div>
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" formControlName="description" class="form-control"
-                    required></textarea>
+                <label for="amount">Total Amount:</label>
+                <input id="amount" name="amount" formControlName="amount" class="form-control"
+                    required></input>
                 <div style="color: red;"
-                    *ngIf="enquiryForm.get('description').hasError('required') && enquiryForm.get('description').touched">
-                    Description is required.</div>
+                    *ngIf="enquiryForm.get('amount').hasError('required') && enquiryForm.get('amount').touched">
+                    Total Amount is required.</div>
             </div>
             <br>
 
