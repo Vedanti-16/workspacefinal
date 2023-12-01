@@ -17,7 +17,7 @@ namespace projectapi.Controllers
         private ApplicationDbContext _db;
 
         public AccountController(ApplicationDbContext dbContext){
-            this._db = dbContext ?? throw new ArgumentNullException(nameof(context));
+            this._db = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
         //---------------------GET PAYMENTS----------------------------------
@@ -136,7 +136,7 @@ namespace projectapi.Controllers
         //--------------------------POST admission---------------------------------
 
         [HttpPost("addAdmission")]
-        public IActionResult MakePayments([FromBody] Admission admission)
+        public IActionResult PostAdmission([FromBody] Admission admission)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace projectapi.Controllers
                 _db.Admissions.Add(admission);
                 _db.SaveChanges();
  
-                return CreatedAtAction("GetAdmission", new { id = admission.admission }, payment);
+                return CreatedAtAction("GetAdmission", new { id = admission.AdmissionId }, admission);
             }
             catch (Exception ex)
             {
@@ -190,21 +190,21 @@ namespace projectapi.Controllers
 
         //--------------------------------DELETE PAYMENTS---------------------------------------
 
-        [HttpDelete("payment/{id}")]
-        public IActionResult DeletePayments(int id)
+        [HttpDelete("admission/{id}")]
+        public IActionResult DeleteAdmission(int id)
         {
             try
             {
-                var payment = _db.Payments.Find(id);
+                var admission = _db.Admissions.Find(id);
  
-                if (payment == null)
+                if (admission == null)
                 {
-                    return NotFound($"Payment with ID {id} not found");
+                    return NotFound($"Admission with ID {id} not found");
                 }
-                payment.IsDeleted = false;
+                admission.IsDeleted = false;
                 _db.SaveChanges();
  
-                return Ok("Payment Deleted");
+                return Ok("Admission Deleted");
             }
             catch (Exception ex)
             {

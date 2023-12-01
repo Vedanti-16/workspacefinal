@@ -12,6 +12,8 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
+  //-------------------COURSES ADMIN----------------------------------
+
   getAllCourses(): Observable<any> {
     return this.http.get<any>(this.apiURL);
   }
@@ -31,4 +33,6 @@ export class ProjectService {
   getStudentCourses(): Observable<any>{
     return this.http.get<any>(this.apiURL)
   }
+
+  //-------------------------
 }
