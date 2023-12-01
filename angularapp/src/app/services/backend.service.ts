@@ -92,7 +92,11 @@ export class BackendService {
   private api = "https://8081-adbbbcccdfabcaaaceeafebecebbffdafdefabcc.premiumproject.examly.io/api"
 
   getPayments() : Observable<any>{
-    return this.http.get<any>(this.api+"/course");
+    return this.http.get<any>(this.api+"/payments");
+  }
+
+  postPayments(payment:any) : Observable<any>{
+    
   }
 
 }
