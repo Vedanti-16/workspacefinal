@@ -7,7 +7,7 @@ namespace projectapi.Models
 {
     public class Payment
     {
-        
+        public int PaymentID {get; set;}
         public int AdmissionId { get; set; }
         public int CourseId { get; set; }
         public int UserId { get; set; }
