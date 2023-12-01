@@ -6,6 +6,13 @@
     <form [formGroup]="enquiryForm" (ngSubmit)="onSubmit(enquiryForm)">
 
         <div>
+
+            <div>
+                <label>Enter enquiry id:</label>
+                <input type="number" id="enquiryID" formControlName="enquiryID" class="form-control" required/>
+            </div>
+            <br>
+
             <div>
                 <label for="enquiryDate">Enquiry Date:</label>
                 <input type="date" id="enquiryDate" formControlName="enquiryDate" class="form-control" required>

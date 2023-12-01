@@ -53,11 +53,10 @@ export class BackendService {
     return this.http.get<any>(this.ApiURL + "/enquiry");
   }
  
-  createEnquiry(enquiry:any):Observable<any>
+  createEnquiry(enquiry:Enquiry):Observable<Enquiry>
   {
-    return this.http.post<any>(this.ApiURL+"/course/enquiry",enquiry,this.httpOptions)
+    return this.http.post<Enquiry>(this.ApiURL+"/course/enquiry",enquiry,this.httpOptions)
   }
-  
 
   //===============================================================
 

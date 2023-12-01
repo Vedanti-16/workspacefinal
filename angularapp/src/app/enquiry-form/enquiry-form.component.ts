@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BackendService } from '../services/backend.service';
+import { Enquiry } from '../enquiry';
 
 @Component({
   selector: 'app-enquiry-form',
@@ -12,7 +13,7 @@ export class EnquiryFormComponent implements OnInit {
 
   // enquiryTypes: string[] = ['General', 'Admission', 'Technical Support']; // Add more if needed
   courseData: any;
-  EnquiryData: any;
+  EnquiryData: Enquiry;
   // courseNames: string[] = ['Course A', 'Course B', 'Course C']; // Add actual course names
 
   constructor(private fb: FormBuilder, private service:BackendService) { }
@@ -31,6 +32,7 @@ export class EnquiryFormComponent implements OnInit {
 
   createEnquiryForm() {
     this.enquiryForm = this.fb.group({
+      enquiryID:['',Validators.required],
       enquiryDate: ['', Validators.required],
       description: ['', Validators.required],
       //emailId: ['', [Validators.required, Validators.email]],
