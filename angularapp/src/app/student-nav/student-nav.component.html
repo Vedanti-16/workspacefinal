@@ -6,10 +6,10 @@
     </button>
     <div style="margin-left: 550px;" class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only"></span></a>
-        <a class="nav-item nav-link" [routerLink]="['/viewCourses']">View Courses</a>
+        <a class="nav-item nav-link active" [routerLink]="['/viewCourses']">Home <span class="sr-only"></span></a>
+        <a class="nav-item nav-link " [routerLink]="['/viewCourses']">View Courses</a>
         <a class="nav-item nav-link" href="">View Admission</a>
-        <a class="nav-item nav-link" href="#">Add Enquiry</a>
+        <a class="nav-item nav-link" [routerLink]="['enquiryForm']">Add Enquiry</a>
         <a class="nav-item nav-link" href="#">View Enquiries</a>`
         <a class="nav-item nav-link" href="#">Logout</a>
       </div>
@@ -20,4 +20,4 @@
 <app-view-admissions></app-view-admissions> -->
 
 <!-- <app-view-enquiries></app-view-enquiries> -->
-<app-enquiry-form></app-enquiry-form> 
+<!-- <app-enquiry-form></app-enquiry-form>  -->

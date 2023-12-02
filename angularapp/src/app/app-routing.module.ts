@@ -7,6 +7,7 @@ import { PostEmpComponent } from './post-emp/post-emp.component';
 import { GetempbyidComponent } from './getempbyid/getempbyid.component';
 import { CreateAdmissionsComponent } from './create-admissions/create-admissions.component';
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
+import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'getbyid/:employeeId',component:GetempbyidComponent},
   //paths for admission
   {path:'admForm',component:CreateAdmissionsComponent},
-  {path:'viewCourses',component:ViewCoursesComponent}
+  {path:'viewCourses',component:ViewCoursesComponent},
+  {path:'enquiryForm',component:EnquiryFormComponent}
 ];
 
 @NgModule({

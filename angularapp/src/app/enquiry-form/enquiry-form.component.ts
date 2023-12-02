@@ -14,6 +14,7 @@ export class EnquiryFormComponent implements OnInit {
   // enquiryTypes: string[] = ['General', 'Admission', 'Technical Support']; // Add more if needed
   courseData: any;
   EnquiryData: Enquiry;
+  userid:number=0;
   // courseNames: string[] = ['Course A', 'Course B', 'Course C']; // Add actual course names
 
   constructor(private fb: FormBuilder, private service:BackendService) { }
