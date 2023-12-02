@@ -13,13 +13,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let course of courses">
-                <td>{{course.courseName}}</td>
+                <td >{{course.courseName}}</td>
                 <td>{{course.description}}</td>
                 <td>{{course.duration}}</td>
                 <td>{{course.feesAmount}}</td>
-              
                 <td>
-                    <button type="submit" (click)="submitAdmission()" class="btn btn-dark" [routerLink]="['/admForm']">Apply Admission</button>
+                    <button type="submit" (click)="submitAdmission()" class="btn btn-dark" [routerLink]="['/admForm/',course.courseID]">Apply Admission</button>
                 </td>
                 
             </tr>

@@ -37,7 +37,7 @@ export class ViewCoursesComponent implements OnInit {
   submitAdmission(){
     this.admission.courseId=this.c_id;
     this.admission.status="pending";
-    this.s.postAdmissions(this.admission)
+    this.s.postAdmissions(this.admission);
   }
 
 }
