@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'addemplink',component:PostEmpComponent},
   {path:'getbyid/:employeeId',component:GetempbyidComponent},
   //paths for admission
-  {path:'admForm/:courseID',component:CreateAdmissionsComponent},
+  {path:'admForm',component:CreateAdmissionsComponent},
   {path:'viewCourses',component:ViewCoursesComponent}
 ];
 

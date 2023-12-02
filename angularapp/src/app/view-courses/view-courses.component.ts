@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { Admission } from '../Models/Admission';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-courses',
@@ -14,7 +14,7 @@ export class ViewCoursesComponent implements OnInit {
   c_id: number;
   
 
-  constructor(private s:BackendService, private ar:ActivatedRoute) { }
+  constructor(private s:BackendService, private ar:ActivatedRoute, private router:Router) { }
 
   admission: Admission = {
     admissionId: 0,
@@ -26,18 +26,23 @@ export class ViewCoursesComponent implements OnInit {
 
   ngOnInit() {
 
-    const id = this.ar.snapshot.paramMap.get('courseID');
-    this.c_id = Number(id);
+    // const id = this.ar.snapshot.paramMap.get('courseID');
+    // this.c_id = Number(id);
 
     this.s.getCourses().subscribe((data) => {
       this.courses = data
     })
   }
 
-  submitAdmission(){
-    this.admission.courseId=this.c_id;
+  submitAdmission(courseId:number){
+    this.admission.courseId=courseId;
     this.admission.status="pending";
-    this.s.postAdmissions(this.admission);
+    this.admission.userId=0;
+    console.log(courseId)
+    this.s.postAdmissions(this.admission).subscribe();
+
+    this.router.navigate(["/admForm"]);
+    
   }
 
 }
