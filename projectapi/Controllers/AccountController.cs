@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using projectapi.Models;
 
 namespace projectapi.Controllers
@@ -122,7 +123,7 @@ namespace projectapi.Controllers
         {
             try
             {
-                var admission = _db.Admissions.ToList().Include(Courses);
+                var admission = _db.Admissions.Include("Course");
                 return Ok(admission);
             }
             catch (Exception ex)

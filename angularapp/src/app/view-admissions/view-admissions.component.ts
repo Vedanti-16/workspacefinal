@@ -9,11 +9,16 @@ import { BackendService } from '../services/backend.service';
 export class ViewAdmissionsComponent implements OnInit {
 
   status = ["Pending", "Accepted"];
+  admData: any;
+  userId:number=0;
 
-  constructor(private http:BackendService) { }
+  constructor(private http:BackendService) {
+    this.http.getAdmissions().subscribe((data)=>{
+      this.admData = data
+    })
+   }
 
-  ngOnInit() {
-    
+  ngOnInit() {    
   }  
-
+  
 }

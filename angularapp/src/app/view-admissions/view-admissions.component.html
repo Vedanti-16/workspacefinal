@@ -10,10 +10,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>zfxdghjilk</td>
-          <td>cfvgbhjkml</td>
-          <td>sdfghjk</td>
+        <tr *ngFor="let adm of admData">
+          <td>{{adm.admissionId}}</td>
+          <td>{{userId}}</td>
+          <td>{{adm.courseName}}</td>
         </tr>
       </tbody>
     </table>
