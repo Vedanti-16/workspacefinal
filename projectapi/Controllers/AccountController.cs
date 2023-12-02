@@ -150,7 +150,7 @@ namespace projectapi.Controllers
                 _db.Admissions.Add(admission);
                 await _db.SaveChangesAsync();
  
-                return CreatedAtAction("GetAdmission", new { id = admission.AdmissionId }, admission);
+                return CreatedAtAction("GetAdmissions", new { id = admission.AdmissionId }, admission);
             }
             catch (Exception ex)
             {
