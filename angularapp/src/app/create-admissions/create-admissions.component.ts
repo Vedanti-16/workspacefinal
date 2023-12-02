@@ -11,7 +11,7 @@ export class CreateAdmissionsComponent implements OnInit {
 
   modes = ["UPI","Card"];
   AdmissionForm:any;
-  courseData: any[];
+  courseData: any[]=[];
 
   constructor(private http:BackendService, private fb:FormBuilder) { 
     
@@ -28,14 +28,16 @@ export class CreateAdmissionsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.http.getCourses().subscribe((data) => {
+      this.courseData = data
+    })
     this.createAdmissionForm();
   }
 
   onSubmit(){
 
-    this.http.getCourses().subscribe((data) => {
-      this.courseData = data
-    })
+ 
 
     console.log(this.courseData);
 

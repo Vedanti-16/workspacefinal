@@ -17,11 +17,11 @@
             <br>
 
             <div>
-                <label for="courseID">Course Name:</label>
-                <select id="courseID" name="courseID" formControlName="courseID" class="form-control" required>
+                <label for="courseName">Course Name:</label>
+                <select id="courseName" name="courseName" formControlName="courseName" class="form-control" required>
                     <option *ngFor="let course of courseData" [value]="course">{{ course.courseName }}</option>
                 </select>
-                <div style="color: red;" *ngIf="AdmissionForm.get('courseName).hasError('required')"
+                <div style="color: red;" *ngIf="enquiryForm.get('courseName').hasError('required')"
                     class="invalid-feedback">Course Name is required.</div>
             </div>
             <br>
