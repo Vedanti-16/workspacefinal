@@ -123,8 +123,9 @@ namespace projectapi.Controllers
         {
             try
             {
-                var admission = _db.Admissions.Include("Course");
-                return Ok(admission);
+                var admissions = _db.Admissions.ToList();
+
+                return Ok(admissions);
             }
             catch (Exception ex)
             {

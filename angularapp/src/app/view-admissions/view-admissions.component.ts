@@ -18,7 +18,7 @@ export class ViewAdmissionsComponent implements OnInit {
     })
    }
 
-  ngOnInit() {    
+  ngOnInit(){    
   }  
-  
+
 }

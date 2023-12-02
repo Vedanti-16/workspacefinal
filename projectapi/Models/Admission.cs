@@ -8,7 +8,7 @@ namespace projectapi.Models
     public class Admission
     {
         public int AdmissionId { get; set; }
-        public int CourseId { get; set; }
+        public int CourseID { get; set; }
         public int UserId { get; set; }
         public string? Status { get; set; }
         public virtual User? User { get; set; }
