@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using projectapi.Models;
 
@@ -126,7 +122,7 @@ namespace projectapi.Controllers
         {
             try
             {
-                var admission = _db.Admissions.ToList();
+                var admission = _db.Admissions.ToList().Include(Courses);
                 return Ok(admission);
             }
             catch (Exception ex)
