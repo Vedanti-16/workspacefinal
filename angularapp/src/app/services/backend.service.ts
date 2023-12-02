@@ -68,7 +68,7 @@ export class BackendService {
 
   getCourse(id:number):Observable<any>
   {
-    return this.http.get<any>(this.ApiURL+"/"+id)
+    return this.http.get<any>(this.ApiURL+"/course/"+id)
   }
  
   createCourse(course:any):Observable<any>
