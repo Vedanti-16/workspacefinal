@@ -5,6 +5,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 import { DeleteEmpComponent } from './delete-emp/delete-emp.component';
 import { PostEmpComponent } from './post-emp/post-emp.component';
 import { GetempbyidComponent } from './getempbyid/getempbyid.component';
+import { CreateAdmissionsComponent } from './create-admissions/create-admissions.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,9 @@ const routes: Routes = [
   {path:'editlink/:employeeId',component:EditFormComponent},
   {path:'deletelink/:employeeId',component:DeleteEmpComponent},
   {path:'addemplink',component:PostEmpComponent},
-  {path:'getbyid/:employeeId',component:GetempbyidComponent}
+  {path:'getbyid/:employeeId',component:GetempbyidComponent},
+  //paths for admission
+  {path:'admForm',component:CreateAdmissionsComponent}
 ];
 
 @NgModule({

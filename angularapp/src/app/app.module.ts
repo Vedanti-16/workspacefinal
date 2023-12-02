@@ -14,7 +14,8 @@ import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component';
 import { ViewAdmissionsComponent } from './view-admissions/view-admissions.component';
 import { CreateAdmissionsComponent } from './create-admissions/create-admissions.component';
-import { StudentNavComponent } from './student-nav/student-nav.component'
+import { StudentNavComponent } from './student-nav/student-nav.component';
+import { ViewCoursesComponent } from './view-courses/view-courses.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StudentNavComponent } from './student-nav/student-nav.component'
     ViewEnquiryComponent,
     ViewAdmissionsComponent,
     CreateAdmissionsComponent,
-    StudentNavComponent
+    StudentNavComponent,
+    ViewCoursesComponent
   ],
   imports: [
     BrowserModule,
