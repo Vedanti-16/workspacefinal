@@ -15,7 +15,7 @@ namespace projectapi.Models
         public string? CreatedBy {get; set;}
         public string? ModifiedBy {get; set;} 
         public Boolean IsDeleted { get; set; }
-        public ICollection<Admission>? Admissions { get; set; }
+        // public ICollection<Admission>? Admissions { get; set; }
         
         public ICollection<Enquiry>? Enquiries { get; set; }
  

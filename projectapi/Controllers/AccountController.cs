@@ -214,6 +214,14 @@ namespace projectapi.Controllers
             }
         }
 
+        //======================GET-ADMISSION-COURSES===============================
+
+        [HttpGet]
+
+        public IActionResult GetAdmCourses(){
+            var result = from course in Courses join admission 
+        }
+
 
     }
 }

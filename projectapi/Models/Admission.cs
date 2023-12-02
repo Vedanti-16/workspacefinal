@@ -12,7 +12,8 @@ namespace projectapi.Models
         public int? UserId { get; set; }
         public string? Status { get; set; }
         public virtual User? User { get; set; }
-         public virtual Course? Course {get;set;}
+
+        // public virtual Course? Course {get;set;}
         // public string? CreatedBy {get; set;}
         // public DateTime CreatedAt {get;set;}
         // public string? ModifiedBy {get; set;}
