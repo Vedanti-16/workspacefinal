@@ -8,7 +8,7 @@ using projectapi.Models;
 namespace projectapi.Controllers
 {
     [ApiController]
-    [Route("api/")]
+    [Route("api")]
     public class AccountController : ControllerBase
     {
 
@@ -138,7 +138,7 @@ namespace projectapi.Controllers
         //--------------------------POST admission---------------------------------
 
         [HttpPost("addAdmission")]
-        public IActionResult PostAdmission([FromBody] Admission admission)
+        public async Task<IActionResult> PostAdmission([FromBody] Admission admission)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace projectapi.Controllers
                 }
  
                 _db.Admissions.Add(admission);
-                _db.SaveChanges();
+                await _db.SaveChangesAsync();
  
                 return CreatedAtAction("GetAdmission", new { id = admission.AdmissionId }, admission);
             }
