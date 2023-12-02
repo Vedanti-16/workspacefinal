@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using projectapi.Models;
 
@@ -11,9 +12,10 @@ using projectapi.Models;
 namespace projectapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231202120228_final10")]
+    partial class final10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,11 +200,11 @@ namespace projectapi.Migrations
             modelBuilder.Entity("projectapi.Models.Admission", b =>
                 {
                     b.HasOne("projectapi.Models.Course", "Course")
-                        .WithMany("Admission")
+                        .WithMany("Admissions")
                         .HasForeignKey("CourseID");
 
                     b.HasOne("projectapi.Models.User", "User")
-                        .WithMany("Admission")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Course");
@@ -212,15 +214,13 @@ namespace projectapi.Migrations
 
             modelBuilder.Entity("projectapi.Models.Enquiry", b =>
                 {
-                    b.HasOne("projectapi.Models.Course", "Course")
+                    b.HasOne("projectapi.Models.Course", null)
                         .WithMany("Enquiries")
                         .HasForeignKey("CourseID");
 
                     b.HasOne("projectapi.Models.User", "User")
-                        .WithMany("Enquiry")
+                        .WithMany()
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Course");
 
                     b.Navigation("User");
                 });
@@ -238,16 +238,9 @@ namespace projectapi.Migrations
 
             modelBuilder.Entity("projectapi.Models.Course", b =>
                 {
-                    b.Navigation("Admission");
+                    b.Navigation("Admissions");
 
                     b.Navigation("Enquiries");
-                });
-
-            modelBuilder.Entity("projectapi.Models.User", b =>
-                {
-                    b.Navigation("Admission");
-
-                    b.Navigation("Enquiry");
                 });
 #pragma warning restore 612, 618
         }
