@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-view-courses',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-courses.component.css']
 })
 export class ViewCoursesComponent implements OnInit {
+  courses: any;
 
-  constructor() { }
+  admission: 
+
+  constructor(private s:BackendService) { }
 
   ngOnInit() {
+    this.s.getCourses().subscribe((data) => {
+      this.courses = data
+    })
+  }
+
+  submitAdmission(){
+    this.s.postAdmissions()
   }
 
 }

@@ -6,6 +6,7 @@ import { DeleteEmpComponent } from './delete-emp/delete-emp.component';
 import { PostEmpComponent } from './post-emp/post-emp.component';
 import { GetempbyidComponent } from './getempbyid/getempbyid.component';
 import { CreateAdmissionsComponent } from './create-admissions/create-admissions.component';
+import { ViewCoursesComponent } from './view-courses/view-courses.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'addemplink',component:PostEmpComponent},
   {path:'getbyid/:employeeId',component:GetempbyidComponent},
   //paths for admission
-  {path:'admForm',component:CreateAdmissionsComponent}
+  {path:'admForm',component:CreateAdmissionsComponent},
+  {path:'viewCourses',component:ViewCoursesComponent}
 ];
 
 @NgModule({

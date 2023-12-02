@@ -19,7 +19,7 @@
                 <td>{{course.feesAmount}}</td>
               
                 <td>
-                    <button type="submit" class="btn btn-dark" [routerLink]="['/admForm']">Apply Admission</button>
+                    <button type="submit" (click)="submitAdmission()" class="btn btn-dark" [routerLink]="['/admForm']">Apply Admission</button>
                 </td>
                 
             </tr>

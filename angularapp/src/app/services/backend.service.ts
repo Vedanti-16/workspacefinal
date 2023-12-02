@@ -99,4 +99,14 @@ export class BackendService {
     return this.http.post<any>(this.api+"/make-payment",payment);
   }
 
+  //================================ADMISSIONS==============================
+
+  getAdmissions() : Observable<any>{
+    return this.http.get<any>(this.api+"/admissions")
+  }
+
+  postAdmissions(adm:any) : Observable<any>{
+    return this.http.post<any>(this.api+"/addAdmission",adm)
+  }
+
 }
