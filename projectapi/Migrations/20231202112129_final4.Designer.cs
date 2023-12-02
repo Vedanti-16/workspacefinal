@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using projectapi.Models;
 
@@ -11,9 +12,10 @@ using projectapi.Models;
 namespace projectapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231202112129_final4")]
+    partial class final4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -202,7 +204,7 @@ namespace projectapi.Migrations
             modelBuilder.Entity("projectapi.Models.Admission", b =>
                 {
                     b.HasOne("projectapi.Models.Course", "Course")
-                        .WithMany("Admissions")
+                        .WithMany()
                         .HasForeignKey("CourseID");
 
                     b.HasOne("projectapi.Models.User", "User")
@@ -232,8 +234,6 @@ namespace projectapi.Migrations
 
             modelBuilder.Entity("projectapi.Models.Course", b =>
                 {
-                    b.Navigation("Admissions");
-
                     b.Navigation("Enquiries");
                 });
 #pragma warning restore 612, 618

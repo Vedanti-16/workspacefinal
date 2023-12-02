@@ -104,6 +104,7 @@ namespace projectapi.Controllers
                     return NotFound($"Payment with ID {id} not found");
                 }
                 payment.IsDeleted = false;
+                
                 _db.SaveChanges();
  
                 return Ok("Payment Deleted");
@@ -188,7 +189,7 @@ namespace projectapi.Controllers
         // }
 
 
-        //--------------------------------DELETE PAYMENTS---------------------------------------
+        //-------------------------------DeleteAdmission---------------------------------------
 
         [HttpDelete("admission/{id}")]
         public IActionResult DeleteAdmission(int id)
@@ -202,6 +203,7 @@ namespace projectapi.Controllers
                     return NotFound($"Admission with ID {id} not found");
                 }
                 admission.IsDeleted = false;
+                _db.Admissions.Remove(admission);
                 _db.SaveChanges();
  
                 return Ok("Admission Deleted");

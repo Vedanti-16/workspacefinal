@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using projectapi.Models;
 
@@ -11,9 +12,10 @@ using projectapi.Models;
 namespace projectapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231202111941_final3")]
+    partial class final3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,7 +32,7 @@ namespace projectapi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdmissionId"), 1L, 1);
 
-                    b.Property<int?>("CourseID")
+                    b.Property<int>("CourseID")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
@@ -39,15 +41,13 @@ namespace projectapi.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.Property<long?>("UserId1")
                         .HasColumnType("bigint");
 
                     b.HasKey("AdmissionId");
-
-                    b.HasIndex("CourseID");
 
                     b.HasIndex("UserId1");
 
@@ -201,15 +201,9 @@ namespace projectapi.Migrations
 
             modelBuilder.Entity("projectapi.Models.Admission", b =>
                 {
-                    b.HasOne("projectapi.Models.Course", "Course")
-                        .WithMany("Admissions")
-                        .HasForeignKey("CourseID");
-
                     b.HasOne("projectapi.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId1");
-
-                    b.Navigation("Course");
 
                     b.Navigation("User");
                 });
@@ -232,8 +226,6 @@ namespace projectapi.Migrations
 
             modelBuilder.Entity("projectapi.Models.Course", b =>
                 {
-                    b.Navigation("Admissions");
-
                     b.Navigation("Enquiries");
                 });
 #pragma warning restore 612, 618
