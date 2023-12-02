@@ -7,9 +7,9 @@ namespace projectapi.Models
 {
     public class User
     {
-         public string Email { get; set; }
+        public int UserId { get; set; }
+        public string Email { get; set; }
  
-        public long UserId { get; set; } = 0;
  
         public string Password { get; set; }
  

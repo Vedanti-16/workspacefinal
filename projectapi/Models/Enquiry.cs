@@ -18,6 +18,7 @@ namespace projectapi.Models
         public string? EnquiryType { get; set; }
  
         public int? UserId { get; set; }
+        public virtual User? User {get;set;}
  
          public Boolean? IsDeleted { get; set; }
     }
