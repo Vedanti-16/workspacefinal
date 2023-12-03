@@ -124,7 +124,7 @@ namespace projectapi.Controllers
         {
             try
             {
-                var admissions = _db.Admissions.ToList();
+                var admissions = _db.Admissions.Include("Course").ToList();
 
                 return Ok(admissions);
             }
@@ -214,6 +214,7 @@ namespace projectapi.Controllers
             }
         }
 
+//----------------------------------------COURSES-------------------------------------------
 
         [HttpGet("courses")]
         public IActionResult GetCourses()
@@ -251,7 +252,6 @@ namespace projectapi.Controllers
         {
             try
             {
- 
                  var courses = _db.Courses.ToList();
                 //var notDeletedCourses = _db.Courses.Where(x=>x.IsDeleted==true);
                 return Ok(courses);
@@ -338,6 +338,73 @@ namespace projectapi.Controllers
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
         }
+
+
+        //----------------------------------------------ENQUIRIES---------------------------------------------
+
+        [HttpDelete("/api/student/{id}")]
+        public IActionResult DeleteEnquiry(int id)
+        {
+            try
+            {
+                var enquiry = _context.Enquiries.Find(id);
+
+                if (enquiry == null)
+                {
+                    return NotFound("Enquiry not found.");
+                }
+                enquiry.IsDeleted = false;
+
+                _context.SaveChanges();
+
+                return Ok("Enquiry deleted successfully.");
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                LogError("DeleteEnquiry", ex);
+                Console.WriteLine($"Error in DeleteEnquiry: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
+        // ------------------------------------------------
+
+        [HttpPost("/api/student/addenquiry")]
+        public IActionResult AddEnquiry([FromBody] Enquiry enquiry)
+        {
+            try
+            {
+                var user = _context.Users.FirstOrDefault(u => u.UserId == enquiry.UserId);
+
+                if (user == null)
+                {
+                    return BadRequest("User not found.");
+                }
+
+                if (user.UserRole == "student")
+                {
+                    if (_context.Enquiries.Count(e => e.EnquiryDate.Date == DateTime.Today && e.UserId == enquiry.UserId) >= 5)
+                    {
+                        return BadRequest("You have reached the maximum number of enquiries per day.");
+                    }
+                }
+
+                _context.Enquiries.Add(enquiry);
+                _context.SaveChanges();
+
+                return Ok("Enquiry added successfully.");
+            }
+            catch (Exception ex)
+            {
+                LogError("AddEnquiry", ex);
+                Console.WriteLine($"Error in AddEnquiry: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
 
     }
     
