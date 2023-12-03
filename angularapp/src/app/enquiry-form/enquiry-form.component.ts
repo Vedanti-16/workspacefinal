@@ -11,7 +11,7 @@ import { Enquiry } from '../Models/Enquiry';
 export class EnquiryFormComponent implements OnInit {
   enquiryForm: FormGroup;
 
-  enquiryTypes: string[] = ['General', 'Admission', 'Technical Support']; // Add more if needed
+  enquiryTypes: string[] = ['General', 'Admission', 'Technical Support'];
   courseData: any;
   EnquiryData: any;
   userid:number=0;
@@ -30,9 +30,17 @@ export class EnquiryFormComponent implements OnInit {
     course: undefined,
     courseName: ''
   }
-  // courseNames: string[] = ['Course A', 'Course B', 'Course C']; // Add actual course names
 
   constructor(private fb: FormBuilder, private service:BackendService) { }
+
+  createEnquiryForm() {
+    this.enquiryForm = this.fb.group({
+      enquiryDate: ["",Validators.required],
+      courseName : ["",Validators.required],
+      description : ["", Validators.required],
+      enquiryType : ["", Validators.required]
+    });
+  }
 
   ngOnInit() {
     this.createEnquiryForm();
@@ -44,21 +52,12 @@ export class EnquiryFormComponent implements OnInit {
     this.service.getEnquiries().subscribe((data) => {
       this.EnquiryData = data
     })
-
-    this.service.createEnquiry(this.enquiryForm.value).subscribe();
-  }
-
-  createEnquiryForm() {
-    this.enquiryForm = this.fb.group({
-      enquiryDate: ["",Validators.required],
-      courseName : ["",Validators.required],
-      description:["",Validators.required],
-      enquiryType:["", Validators.required]
-    });
   }
 
   onSubmit() {
-    // Handle form submission here, you can access form values using this.enquiryForm.value
+    this.service.createEnquiry(this.enquiryForm.value).subscribe(()=>{
+      alert("Enquiry added successfully")
+    });
     console.log(this.enquiryForm.value);
   }
 }
