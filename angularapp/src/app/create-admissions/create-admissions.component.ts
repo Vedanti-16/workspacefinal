@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Payment } from '../Models/Payment';
 
 @Component({
   selector: 'app-create-admissions',
@@ -13,9 +14,24 @@ export class CreateAdmissionsComponent implements OnInit {
   AdmissionForm:any;
   courseData: any[]=[];
 
+  paymentData:Payment = {
+    paymentId: 0,
+    status: '',
+    amount: 0,
+    paymentDate: undefined,
+    mode: '',
+    userId: 0,
+    admissionId: 0,
+    courseId: 0,
+    course: undefined,
+    admission: undefined
+  };
+
   constructor(private http:BackendService, private fb:FormBuilder) { 
     
   }
+
+
 
   createAdmissionForm(){
     this.AdmissionForm = this.fb.group({
@@ -28,21 +44,20 @@ export class CreateAdmissionsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.createAdmissionForm();
     this.http.getCourses().subscribe((data) => {
       this.courseData = data
     })
-    this.createAdmissionForm();
+    this.paymentData.userId=this.AdmissionForm.userId;
+    this.paymentData.status="Accepted";
+    this.paymentData.mode=this.AdmissionForm.mode;
+    this.paymentData.admissionId=this.AdmissionForm.admissionId;
+    
+    this.http.postPayments().subscribe();
   }
 
   onSubmit(){
-
- 
-
     console.log(this.courseData);
-
-
-    this.http.postPayments(this.AdmissionForm.value).subscribe();
   }
 
 }
