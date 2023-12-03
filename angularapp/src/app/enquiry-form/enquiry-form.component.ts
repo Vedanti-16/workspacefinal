@@ -13,7 +13,7 @@ export class EnquiryFormComponent implements OnInit {
 
   enquiryTypes: string[] = ['General', 'Admission', 'Technical Support']; // Add more if needed
   courseData: any;
-  EnquiryData: Enquiry;
+  EnquiryData: any;
   userid:number=0;
   // courseNames: string[] = ['Course A', 'Course B', 'Course C']; // Add actual course names
 
