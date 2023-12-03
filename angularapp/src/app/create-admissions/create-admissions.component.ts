@@ -62,15 +62,15 @@ export class CreateAdmissionsComponent implements OnInit {
     this.paymentData.userId=this.AdmissionForm.userId;
     this.paymentData.status="Accepted";
     this.paymentData.mode=this.AdmissionForm.mode;
-    if(this.admission.userId == this.paymentData.userId){
-      this.paymentData.admissionId = this.admission.admissionId;
-    }
-
+    // if(this.admission.userId == this.paymentData.userId){
+    //   this.paymentData.admissionId = this.admission.admissionId;
+    // }
+    
   }
 
   onSubmit(){
     this.http.postPayments(this.paymentData).subscribe(()=>{
-      
+
     });
     console.log(this.courseData);
   }
