@@ -22,7 +22,9 @@ export class ViewCoursesComponent implements OnInit {
     userId: 0,
     status: '',
     isDeleted: false,
-    courseName:''
+    courseName:'',
+    course:null
+
   }
 
   ngOnInit() {

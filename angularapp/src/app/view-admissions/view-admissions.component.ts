@@ -21,10 +21,6 @@ export class ViewAdmissionsComponent implements OnInit {
     this.http.getAdmissions().subscribe((data)=>{
       this.admData = data
     }) 
-
-    this.http.getPayments().subscribe((data) => {
-      this.paymentData = data
-    })
   }  
 
 }
