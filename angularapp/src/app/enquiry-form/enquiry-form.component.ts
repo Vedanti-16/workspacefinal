@@ -11,7 +11,7 @@ import { Enquiry } from '../enquiry';
 export class EnquiryFormComponent implements OnInit {
   enquiryForm: FormGroup;
 
-  // enquiryTypes: string[] = ['General', 'Admission', 'Technical Support']; // Add more if needed
+  enquiryTypes: string[] = ['General', 'Admission', 'Technical Support']; // Add more if needed
   courseData: any;
   EnquiryData: Enquiry;
   userid:number=0;
