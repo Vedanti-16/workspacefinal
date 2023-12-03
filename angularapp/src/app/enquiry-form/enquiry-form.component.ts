@@ -29,6 +29,8 @@ export class EnquiryFormComponent implements OnInit {
     this.service.getEnquiries().subscribe((data) => {
       this.EnquiryData = data
     })
+
+    this.service.createEnquiry(this.enquiryForm.value).subscribe();
   }
 
   createEnquiryForm() {
@@ -47,7 +49,6 @@ export class EnquiryFormComponent implements OnInit {
 
   onSubmit() {
     // Handle form submission here, you can access form values using this.enquiryForm.value
-    this.service.createEnquiry(this.enquiryForm.value).subscribe();
     console.log(this.enquiryForm.value);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Payment } from '../Models/Payment';
+import { Admission } from '../Models/Admission';
 
 @Component({
   selector: 'app-create-admissions',
@@ -27,11 +28,21 @@ export class CreateAdmissionsComponent implements OnInit {
     admission: undefined
   };
 
+  admission:Admission={
+    admissionId: 0,
+    courseId: 0,
+    userId: 0,
+    status: '',
+    isDeleted: false,
+    course: undefined,
+    courseName: ''
+  }
+
+  userId:number=0;
+
   constructor(private http:BackendService, private fb:FormBuilder) { 
     
   }
-
-
 
   createAdmissionForm(){
     this.AdmissionForm = this.fb.group({
@@ -51,8 +62,10 @@ export class CreateAdmissionsComponent implements OnInit {
     this.paymentData.userId=this.AdmissionForm.userId;
     this.paymentData.status="Accepted";
     this.paymentData.mode=this.AdmissionForm.mode;
-    this.paymentData.admissionId=this.AdmissionForm.admissionId;
-    
+    if(this.admission.userId == this.paymentData.userId){
+      this.paymentData.admissionId = this.admission.admissionId;
+    }
+
     this.http.postPayments().subscribe();
   }
 

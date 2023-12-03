@@ -9,7 +9,7 @@
 
             <div>
                 <label for="userId">User ID</label>
-                <input type="number" id="userId" formControlName="userId" class="form-control" required>
+                <input type="number" [(ngModel)]="userId" id="userId" formControlName="userId" class="form-control" required>
                 <div
                     *ngIf="AdmissionForm.get('userId').hasError('required') && AdmissionForm.get('userId').touched">
                     User ID is required.</div>
