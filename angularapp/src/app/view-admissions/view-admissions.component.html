@@ -4,16 +4,16 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col">Admission ID</th>
-          <th scope="col">User ID</th>
           <th scope="col">Course Name</th>
+          <th scope="col"></th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let adm of admData">
           <td>{{adm.admissionId}}</td>
-          <td>{{adm.userId}}</td>
           <td>{{adm.courseName}}</td>
+          <td></td>
         </tr>
       </tbody>
     </table>

@@ -4,6 +4,7 @@ export interface Admission{
     courseId:number,
     userId: number,
     status: string,
-    isDeleted: boolean
+    isDeleted: boolean,
+    courseName:string
 
 }
