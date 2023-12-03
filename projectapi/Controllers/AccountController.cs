@@ -347,7 +347,7 @@ namespace projectapi.Controllers
         {
             try
             {
-                var enquiry = _context.Enquiries.Find(id);
+                var enquiry = _db.Enquiries.Find(id);
 
                 if (enquiry == null)
                 {
@@ -355,15 +355,13 @@ namespace projectapi.Controllers
                 }
                 enquiry.IsDeleted = false;
 
-                _context.SaveChanges();
+                _db.SaveChanges();
 
                 return Ok("Enquiry deleted successfully.");
             }
             catch (Exception ex)
             {
                 // Log the exception
-                LogError("DeleteEnquiry", ex);
-                Console.WriteLine($"Error in DeleteEnquiry: {ex}");
                 return StatusCode(500, "Internal server error");
             }
         }
@@ -376,7 +374,7 @@ namespace projectapi.Controllers
         {
             try
             {
-                var user = _context.Users.FirstOrDefault(u => u.UserId == enquiry.UserId);
+                var user = _db.Users.FirstOrDefault(u => u.UserId == enquiry.UserId);
 
                 if (user == null)
                 {
@@ -385,27 +383,22 @@ namespace projectapi.Controllers
 
                 if (user.UserRole == "student")
                 {
-                    if (_context.Enquiries.Count(e => e.EnquiryDate.Date == DateTime.Today && e.UserId == enquiry.UserId) >= 5)
+                    if (_db.Enquiries.Count(e => e.EnquiryDate.Date == DateTime.Today && e.UserId == enquiry.UserId) >= 5)
                     {
                         return BadRequest("You have reached the maximum number of enquiries per day.");
                     }
                 }
 
-                _context.Enquiries.Add(enquiry);
-                _context.SaveChanges();
+                _db.Enquiries.Add(enquiry);
+                _db.SaveChanges();
 
                 return Ok("Enquiry added successfully.");
             }
             catch (Exception ex)
             {
-                LogError("AddEnquiry", ex);
                 Console.WriteLine($"Error in AddEnquiry: {ex}");
                 return StatusCode(500, "Internal server error");
             }
         }
-
-
-
     }
-    
 }

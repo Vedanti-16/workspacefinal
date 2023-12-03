@@ -11,14 +11,20 @@ export class ViewAdmissionsComponent implements OnInit {
   status = ["Pending", "Accepted"];
   admData: any;
   userId:number=0;
+  paymentData: any;
 
   constructor(private http:BackendService) {
-    this.http.getAdmissions().subscribe((data)=>{
-      this.admData = data
-    })
+    
    }
 
-  ngOnInit(){    
+  ngOnInit(){   
+    this.http.getAdmissions().subscribe((data)=>{
+      this.admData = data
+    }) 
+
+    this.http.getPayments().subscribe((data) => {
+      this.paymentData = data
+    })
   }  
 
 }

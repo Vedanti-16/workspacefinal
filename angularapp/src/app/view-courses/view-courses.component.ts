@@ -21,7 +21,8 @@ export class ViewCoursesComponent implements OnInit {
     courseId: 0,
     userId: 0,
     status: '',
-    isDeleted: false
+    isDeleted: false,
+    courseName:''
   }
 
   ngOnInit() {

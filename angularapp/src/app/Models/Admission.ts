@@ -6,5 +6,4 @@ export interface Admission{
     status: string,
     isDeleted: boolean,
     courseName:string
-
 }
