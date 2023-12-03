@@ -66,7 +66,7 @@ export class CreateAdmissionsComponent implements OnInit {
       this.paymentData.admissionId = this.admission.admissionId;
     }
 
-    this.http.postPayments().subscribe();
+    // this.http.postPayments().subscribe();
   }
 
   onSubmit(){

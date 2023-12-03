@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BackendService } from '../services/backend.service';
-import { Enquiry } from '../enquiry';
+import { Enquiry } from '../Models/Enquiry';
 
 @Component({
   selector: 'app-enquiry-form',
@@ -15,6 +15,21 @@ export class EnquiryFormComponent implements OnInit {
   courseData: any;
   EnquiryData: any;
   userid:number=0;
+  enquiryData:Enquiry = {
+    createdBy: '',
+    userId: 0,
+    createdAt: undefined,
+    enquiryType: '',
+    modifiedBy: null,
+    description: '',
+    modifiedAt: undefined,
+    title: '',
+    isDeleted: undefined,
+    enquiryDate: undefined,
+    enquiryID: 0,
+    course: undefined,
+    courseName: ''
+  }
   // courseNames: string[] = ['Course A', 'Course B', 'Course C']; // Add actual course names
 
   constructor(private fb: FormBuilder, private service:BackendService) { }
@@ -35,15 +50,10 @@ export class EnquiryFormComponent implements OnInit {
 
   createEnquiryForm() {
     this.enquiryForm = this.fb.group({
-      // enquiryID:['',Validators.required],
-      enquiryDate: ['', Validators.required],
-      description: ['', Validators.required],
-      //emailId: ['', [Validators.required, Validators.email]],
-      enquiryType: ['', Validators.required],
-      courseName: ['', Validators.required],
-      title:[""],
-      studentId:[0],
-      isDeleted:[true]
+      enquiryDate: ["",Validators.required],
+      courseName : ["",Validators.required],
+      description:["",Validators.required],
+      enquiryType:["", Validators.required]
     });
   }
 
