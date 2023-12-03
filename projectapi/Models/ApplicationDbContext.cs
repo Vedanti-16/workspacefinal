@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using projectapi.Models;
-
 namespace projectapi.Models
 {
     public class ApplicationDbContext : DbContext
@@ -17,7 +15,5 @@ namespace projectapi.Models
         public virtual DbSet<User> Users {get;set;}
         public virtual DbSet<Payment> Payments {get;set;}
         public virtual DbSet<Admission> Admissions {get;set;}
- 
-       
     }
 }

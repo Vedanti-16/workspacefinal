@@ -1,227 +1,227 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using projectapi.Models;
+// using Microsoft.AspNetCore.Mvc;
+// using Microsoft.EntityFrameworkCore;
+// using projectapi.Models;
 
-namespace projectapi.Controllers
-{
-    [ApiController]
-    [Route("api")]
-    public class AccountController : ControllerBase
-    {
+// namespace projectapi.Controllers
+// {
+//     [ApiController]
+//     [Route("api")]
+//     public class AccountController : ControllerBase
+//     {
 
-        //----------------------------------PAYEMENT CONTROLLER----------------------------------------
+//         //----------------------------------PAYEMENT CONTROLLER----------------------------------------
 
-        private ApplicationDbContext _db;
+//         private ApplicationDbContext _db;
 
-        public AccountController(ApplicationDbContext dbContext){
-            this._db = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-        }
+//         public AccountController(ApplicationDbContext dbContext){
+//             this._db = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+//         }
 
-        //---------------------GET PAYMENTS----------------------------------
+//         //---------------------GET PAYMENTS----------------------------------
 
-        [HttpGet("payments")]
-        public IActionResult GetPayments()
-        {
-            try
-            {
-                var payments = _db.Payments.ToList();
-                return Ok(payments);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
+//         [HttpGet("payments")]
+//         public IActionResult GetPayments()
+//         {
+//             try
+//             {
+//                 var payments = _db.Payments.ToList();
+//                 return Ok(payments);
+//             }
+//             catch (Exception ex)
+//             {
+//                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
+//             }
+//         }
 
-        //--------------------------POST PAYMENTS---------------------------------
+//         //--------------------------POST PAYMENTS---------------------------------
 
-        [HttpPost("make-payment")]
-        public IActionResult MakePayments([FromBody] Payment payment)
-        {
-            try
-            {
-                if (payment == null)
-                {
-                    return BadRequest("Payment object is null");
-                }
+//         [HttpPost("make-payment")]
+//         public IActionResult MakePayments([FromBody] Payment payment)
+//         {
+//             try
+//             {
+//                 if (payment == null)
+//                 {
+//                     return BadRequest("Payment object is null");
+//                 }
  
-                _db.Payments.Add(payment);
-                _db.SaveChanges();
+//                 _db.Payments.Add(payment);
+//                 _db.SaveChanges();
  
-                return CreatedAtAction("GetPayments", new { id = payment.PaymentID }, payment);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
+//                 return CreatedAtAction("GetPayments", new { id = payment.PaymentID }, payment);
+//             }
+//             catch (Exception ex)
+//             {
+//                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
+//             }
+//         }
 
-        //----------------------------PUT PAYMENTS--------------------------------------
+//         //----------------------------PUT PAYMENTS--------------------------------------
 
         
 
-        // [HttpPut("course/{id}")]
-        // public IActionResult EditCourse(int id, [FromBody] Course course)
-        // {
-        //     try
-        //     {
-        //         var existingCourse = _db.Courses.Find(id);
+//         // [HttpPut("course/{id}")]
+//         // public IActionResult EditCourse(int id, [FromBody] Course course)
+//         // {
+//         //     try
+//         //     {
+//         //         var existingCourse = _db.Courses.Find(id);
  
-        //         if (existingCourse == null)
-        //         {
-        //             return NotFound($"Course with ID {id} not found");
-        //         }
+//         //         if (existingCourse == null)
+//         //         {
+//         //             return NotFound($"Course with ID {id} not found");
+//         //         }
  
-        //         // Update properties based on your Course model
-        //         existingCourse.CourseName = course.CourseName;
-        //         existingCourse.Description = course.Description;
-        //         existingCourse.Duration = course.Duration;
-        //         existingCourse.FeesAmount = course.FeesAmount;
-        //         existingCourse.ModifiedBy = user.username;
+//         //         // Update properties based on your Course model
+//         //         existingCourse.CourseName = course.CourseName;
+//         //         existingCourse.Description = course.Description;
+//         //         existingCourse.Duration = course.Duration;
+//         //         existingCourse.FeesAmount = course.FeesAmount;
+//         //         existingCourse.ModifiedBy = user.username;
  
-        //         _db.SaveChanges();
+//         //         _db.SaveChanges();
  
-        //         return NoContent();
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         return StatusCode(500, $"Internal Server Error: {ex.Message}");
-        //     }
-        // }
+//         //         return NoContent();
+//         //     }
+//         //     catch (Exception ex)
+//         //     {
+//         //         return StatusCode(500, $"Internal Server Error: {ex.Message}");
+//         //     }
+//         // }
 
 
-        //--------------------------------DELETE PAYMENTS---------------------------------------
+//         //--------------------------------DELETE PAYMENTS---------------------------------------
 
-        [HttpDelete("payment/{id}")]
-        public IActionResult DeletePayments(int id)
-        {
-            try
-            {
-                var payment = _db.Payments.Find(id);
+//         [HttpDelete("payment/{id}")]
+//         public IActionResult DeletePayments(int id)
+//         {
+//             try
+//             {
+//                 var payment = _db.Payments.Find(id);
  
-                if (payment == null)
-                {
-                    return NotFound($"Payment with ID {id} not found");
-                }
-                payment.IsDeleted = false;
+//                 if (payment == null)
+//                 {
+//                     return NotFound($"Payment with ID {id} not found");
+//                 }
+//                 payment.IsDeleted = false;
                 
-                _db.SaveChanges();
+//                 _db.SaveChanges();
  
-                return Ok("Payment Deleted");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
+//                 return Ok("Payment Deleted");
+//             }
+//             catch (Exception ex)
+//             {
+//                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
+//             }
+//         }
 
 
-        // -----------------------------------ADMISSIONS CONTROLLER--------------------------------------
+//         // -----------------------------------ADMISSIONS CONTROLLER--------------------------------------
 
 
-        [HttpGet("admissions")]
-        public IActionResult GetAdmissions()
-        {
-            try
-            {
-                var admissions = _db.Admissions.ToList();
+//         [HttpGet("admissions")]
+//         public IActionResult GetAdmissions()
+//         {
+//             try
+//             {
+//                 var admissions = _db.Admissions.ToList();
 
-                return Ok(admissions);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
+//                 return Ok(admissions);
+//             }
+//             catch (Exception ex)
+//             {
+//                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
+//             }
+//         }
 
-        //--------------------------POST admission---------------------------------
+//         //--------------------------POST admission---------------------------------
 
-        [HttpPost("addAdmission")]
-        public async Task<IActionResult> PostAdmission([FromBody] Admission admission)
-        {
-            try
-            {
-                if (admission == null)
-                {
-                    return BadRequest("Admission object is null");
-                }
+//         [HttpPost("addAdmission")]
+//         public async Task<IActionResult> PostAdmission([FromBody] Admission admission)
+//         {
+//             try
+//             {
+//                 if (admission == null)
+//                 {
+//                     return BadRequest("Admission object is null");
+//                 }
  
-                _db.Admissions.Add(admission);
-                await _db.SaveChangesAsync();
+//                 _db.Admissions.Add(admission);
+//                 await _db.SaveChangesAsync();
  
-                return CreatedAtAction("GetAdmissions", new { id = admission.AdmissionId }, admission);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
+//                 return CreatedAtAction("GetAdmissions", new { id = admission.AdmissionId }, admission);
+//             }
+//             catch (Exception ex)
+//             {
+//                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
+//             }
+//         }
 
-        //----------------------------PUT PAYMENTS--------------------------------------
+//         //----------------------------PUT PAYMENTS--------------------------------------
 
-        // [HttpPut("course/{id}")]
-        // public IActionResult EditCourse(int id, [FromBody] Course course)
-        // {
-        //     try
-        //     {
-        //         var existingCourse = _db.Courses.Find(id);
+//         // [HttpPut("course/{id}")]
+//         // public IActionResult EditCourse(int id, [FromBody] Course course)
+//         // {
+//         //     try
+//         //     {
+//         //         var existingCourse = _db.Courses.Find(id);
  
-        //         if (existingCourse == null)
-        //         {
-        //             return NotFound($"Course with ID {id} not found");
-        //         }
+//         //         if (existingCourse == null)
+//         //         {
+//         //             return NotFound($"Course with ID {id} not found");
+//         //         }
  
-        //         // Update properties based on your Course model
-        //         existingCourse.CourseName = course.CourseName;
-        //         existingCourse.Description = course.Description;
-        //         existingCourse.Duration = course.Duration;
-        //         existingCourse.FeesAmount = course.FeesAmount;
-        //         existingCourse.ModifiedBy = course.ModifiedBy;
+//         //         // Update properties based on your Course model
+//         //         existingCourse.CourseName = course.CourseName;
+//         //         existingCourse.Description = course.Description;
+//         //         existingCourse.Duration = course.Duration;
+//         //         existingCourse.FeesAmount = course.FeesAmount;
+//         //         existingCourse.ModifiedBy = course.ModifiedBy;
  
-        //         _db.SaveChanges();
+//         //         _db.SaveChanges();
  
-        //         return NoContent();
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         return StatusCode(500, $"Internal Server Error: {ex.Message}");
-        //     }
-        // }
+//         //         return NoContent();
+//         //     }
+//         //     catch (Exception ex)
+//         //     {
+//         //         return StatusCode(500, $"Internal Server Error: {ex.Message}");
+//         //     }
+//         // }
 
 
-        //-------------------------------DeleteAdmission---------------------------------------
+//         //-------------------------------DeleteAdmission---------------------------------------
 
-        [HttpDelete("admission/{id}")]
-        public IActionResult DeleteAdmission(int id)
-        {
-            try
-            {
-                var admission = _db.Admissions.Find(id);
+//         [HttpDelete("admission/{id}")]
+//         public IActionResult DeleteAdmission(int id)
+//         {
+//             try
+//             {
+//                 var admission = _db.Admissions.Find(id);
  
-                if (admission == null)
-                {
-                    return NotFound($"Admission with ID {id} not found");
-                }
-                admission.IsDeleted = false;
-                _db.Admissions.Remove(admission);
-                _db.SaveChanges();
+//                 if (admission == null)
+//                 {
+//                     return NotFound($"Admission with ID {id} not found");
+//                 }
+//                 admission.IsDeleted = false;
+//                 _db.Admissions.Remove(admission);
+//                 _db.SaveChanges();
  
-                return Ok("Admission Deleted");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal Server Error: {ex.Message}");
-            }
-        }
+//                 return Ok("Admission Deleted");
+//             }
+//             catch (Exception ex)
+//             {
+//                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
+//             }
+//         }
 
-        //======================GET-ADMISSION-COURSES===============================
+//         //======================GET-ADMISSION-COURSES===============================
 
-        // [HttpGet]
+//         // [HttpGet]
 
-        // public IActionResult GetAdmCourses(){
-        //     var result = from course in Courses join admissions in Admission 
-        // }
+//         // public IActionResult GetAdmCourses(){
+//         //     var result = from course in Courses join admissions in Admission 
+//         // }
 
 
-    }
-}
+//     }
+// }
