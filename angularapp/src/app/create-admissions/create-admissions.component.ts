@@ -70,7 +70,6 @@ export class CreateAdmissionsComponent implements OnInit {
 
   onSubmit(){
     this.http.postPayments(this.paymentData).subscribe(()=>{
-
     });
     console.log(this.courseData);
   }

@@ -18,8 +18,8 @@
 
             <div>
                 <label for="courseName">Course Name:</label>
-                <select id="courseName" name="courseName" formControlName="courseName" class="form-control" required>
-                    <option *ngFor="let course of courseData" [value]="course">{{ course.courseName }}</option>
+                <select id="courseName" name="courseName" formControlName="CourseID" class="form-control" required>
+                    <option *ngFor="let course of courseData" [value]="CourseID">{{ course.courseName }}</option>
                 </select>
                 <div style="color: red;" *ngIf="enquiryForm.get('courseName').hasError('required')"
                     class="invalid-feedback">Course Name is required.</div>
@@ -54,7 +54,7 @@
             </div>
             <br>
 
-            <button type="submit"  class="btn btn-dark" [disabled]="AdmissionForm.invalid">Make Payment</button>
+            <button type="submit" class="btn btn-dark" [disabled]="AdmissionForm.invalid">Make Payment</button>
         </div>
 
     </form>
