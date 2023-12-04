@@ -8,5 +8,4 @@ export interface Admission {
     isDeleted: boolean,
     course:Course,
     courseName:string
-   
 }
