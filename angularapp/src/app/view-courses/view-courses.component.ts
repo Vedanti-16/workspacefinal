@@ -48,14 +48,10 @@ export class ViewCoursesComponent implements OnInit {
         console.log(res);
         this.admission = res;
         this.router.navigate(["/admForm",this.admission.admissionId, this.admission.courseId]);
-
       }
     );
 
     console.log('AdmissionId:' + this.admission.admissionId);
-
-
-    
   }
 
 }
