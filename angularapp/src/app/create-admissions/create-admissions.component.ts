@@ -55,7 +55,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.AdmissionForm = this.fb.group({
       userId:['',Validators.required],
       courseId:["",Validators.required],
-      amount:["", Validators.required],
+      feesAmount:['', Validators.required],
       mode:["",Validators.required],
       paymentDate:["",Validators.required]
     })
@@ -81,9 +81,9 @@ export class CreateAdmissionsComponent implements OnInit {
     
     this.createAdmissionForm();
 
-    this.http.getCourses().subscribe((data) => {
-      this.courseData = data
-    })
+    // this.http.getCourses().subscribe((data) => {
+    //   this.courseData = data
+    // })
 
     this.http.getCourse(this.c_id).subscribe((data) => {
       // console.log(data);
@@ -92,7 +92,7 @@ export class CreateAdmissionsComponent implements OnInit {
       this.c_name=this.course.courseName;
       console.log(this.course.courseName);
       this.amt = this.course.feesAmount;
-      console.log(this.amt);
+      console.log('amt ' + this.amt);
       console.log(this.c_name);
       this.paymentForm();
     })
