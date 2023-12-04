@@ -3,6 +3,7 @@ import { BackendService } from '../services/backend.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Payment } from '../Models/Payment';
 import { Admission } from '../Models/Admission';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-admissions',
@@ -39,15 +40,17 @@ export class CreateAdmissionsComponent implements OnInit {
   }
 
   userId:number=0;
+  p_id:number;
+  course:any;
 
-  constructor(private http:BackendService, private fb:FormBuilder) { 
+  constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     
   }
 
   createAdmissionForm(){
     this.AdmissionForm = this.fb.group({
       userId:['',Validators.required],
-      courseName:["",Validators.required],
+      courseId:["",Validators.required],
       amount:["", Validators.required],
       mode:["",Validators.required],
       paymentDate:["",Validators.required]
@@ -55,13 +58,25 @@ export class CreateAdmissionsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    const id = this.ar.snapshot.paramMap.get("admissionId")
+    this.p_id = Number(id);
+    
     this.createAdmissionForm();
     this.http.getCourses().subscribe((data) => {
       this.courseData = data
     })
+
+    this.http.getCourse(this.admission.courseId).subscribe((data) => {
+      this.course = data
+    })
+    
     this.paymentData.userId=this.AdmissionForm.userId;
     this.paymentData.status="Accepted";
     this.paymentData.mode=this.AdmissionForm.mode;
+    this.paymentData.admissionId = this.p_id;
+    this.paymentData.courseId = this.AdmissionForm.courseID;
+
     // if(this.admission.userId == this.paymentData.userId){
     //   this.paymentData.admissionId = this.admission.admissionId;
     // }

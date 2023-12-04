@@ -44,7 +44,7 @@ export class ViewCoursesComponent implements OnInit {
     console.log(courseId)
     this.s.postAdmissions(this.admission).subscribe();
 
-    this.router.navigate(["/admFor",ad]);
+    this.router.navigate(["/admForm/",this.admission.admissionId]);
     
   }
 
