@@ -39,8 +39,9 @@ export class CreateAdmissionsComponent implements OnInit {
     courseName: ''
   }
 
-  p_id:number;
+  a_id:number;
   course:any;
+  c_id: number;
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     
@@ -59,15 +60,19 @@ export class CreateAdmissionsComponent implements OnInit {
   ngOnInit() {
 
     const id = this.ar.snapshot.paramMap.get("admissionId")
-    this.p_id = Number(id);
-    console.log(this.p_id);
+    this.a_id = Number(id);
+    console.log(this.a_id);
+
+    const id2 = this.ar.snapshot.paramMap.get("courseId");
+    this.c_id = Number(id2);
+
     
     this.createAdmissionForm();
     this.http.getCourses().subscribe((data) => {
       this.courseData = data
     })
 
-    this.http.getCourse(this.admission.courseId).subscribe((data) => {
+    this.http.getCourse(this.c_id).subscribe((data) => {
       this.course = data
     })
 
@@ -76,7 +81,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.paymentData.userId=this.AdmissionForm.userId;
     this.paymentData.status="Accepted";
     this.paymentData.mode=this.AdmissionForm.mode;
-    this.paymentData.admissionId = this.p_id;
+    this.paymentData.admissionId = this.a_id;
     this.paymentData.courseId = this.AdmissionForm.courseID;
 
     // if(this.admission.userId == this.paymentData.userId){
@@ -87,7 +92,6 @@ export class CreateAdmissionsComponent implements OnInit {
 
   onSubmit(){
     this.http.postPayments(this.paymentData).subscribe(()=>{
-
     });
     console.log(this.courseData);
   }

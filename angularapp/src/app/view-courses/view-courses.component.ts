@@ -41,10 +41,20 @@ export class ViewCoursesComponent implements OnInit {
     this.admission.courseId=courseId;
     this.admission.status="pending";
     this.admission.userId=0;
-    console.log(courseId)
-    this.s.postAdmissions(this.admission).subscribe();
+    console.log('courseId:' + courseId);
 
-    this.router.navigate(["/admForm/",this.admission.admissionId]);
+    this.s.postAdmissions(this.admission).subscribe(
+      (res)=>{
+        console.log(res);
+        this.admission = res;
+        this.router.navigate(["/admForm",this.admission.admissionId, this.admission.courseId]);
+
+      }
+    );
+
+    console.log('AdmissionId:' + this.admission.admissionId);
+
+
     
   }
 
