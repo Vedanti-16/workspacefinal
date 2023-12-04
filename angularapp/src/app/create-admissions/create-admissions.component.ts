@@ -50,7 +50,7 @@ export class CreateAdmissionsComponent implements OnInit {
   modes = ["UPI","Card"];
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
-    
+    this.createAdmissionForm()
   }
 
   createAdmissionForm(){
@@ -82,7 +82,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.c_id = Number(id2);
     console.log(this.c_id);
     
-    this.createAdmissionForm();
+  
 
     // this.http.getCourses().subscribe((data) => {
     //   this.courseData = data
@@ -94,8 +94,10 @@ export class CreateAdmissionsComponent implements OnInit {
       console.log(this.course);
       this.c_name=this.course.courseName;
       console.log(this.course.courseName);
-      this.amt = this.course.feesAmount;
-      console.log('amt ' + this.amt);
+      //this.amt = this.course.feesAmount;
+      
+      // this.AdmissionForm.feesAmount = this.course.feesAmount;
+      // console.log('amt ' + this.AdmissionForm.feesAmount);
       console.log(this.c_name);
       this.paymentForm();
     })
