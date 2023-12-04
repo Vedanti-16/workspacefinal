@@ -67,7 +67,7 @@ export class CreateAdmissionsComponent implements OnInit {
 
     const id = this.ar.snapshot.paramMap.get("admissionId");
     this.a_id = Number(id);
-    //console.log(this.a_id);
+    console.log("a_id"+this.a_id);
 
     const id2 = this.ar.snapshot.paramMap.get("courseId");
     this.c_id = Number(id2);
@@ -89,7 +89,7 @@ export class CreateAdmissionsComponent implements OnInit {
 
     //GET ADMISSION BY ID
 
-    this.http.getAdmission(this.c_id).subscribe((data) => {
+    this.http.getAdmission(this.a_id).subscribe((data) => {
       this.admission = data;
       console.log('GetAdmission ' +this.admission);
     })
@@ -111,12 +111,12 @@ export class CreateAdmissionsComponent implements OnInit {
     this.http.postPayments(this.paymentData).subscribe(()=>{
     });
 
-    console.log("C_id"+this.c_id);
+    console.log("admission_id"+this.a_id);
 
-    this.http.updateAdmission(this.c_id,this.admission).subscribe((data) => {
+    this.http.updateAdmission(this.a_id,this.admission).subscribe((data) => {
       console.log('UpdateAdmission' + data);
     })
-    console.log(this.paymentData);
+    // console.log(this.paymentData);
   }
 
 }
