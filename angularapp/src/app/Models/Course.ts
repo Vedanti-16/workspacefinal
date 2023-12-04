@@ -8,7 +8,7 @@ export interface Course {
     createdBy: string,
     modifiedBy: string,
     isDeleted: boolean,
-    modifiedAt:string
+    modifiedAt:Date
     //enquiries?:Enquiry
 
 }

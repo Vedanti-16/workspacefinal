@@ -13,7 +13,7 @@ import { Course } from '../Models/Course';
 })
 export class CreateAdmissionsComponent implements OnInit {
 
-  modes = ["UPI","Card"];
+  mode:string="UPI";
   AdmissionForm:any;
   courseData: any[]=[];
 
@@ -43,6 +43,7 @@ export class CreateAdmissionsComponent implements OnInit {
   a_id:number;
   course:Course;
   c_id: number;
+  c_name: string;
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     
@@ -56,6 +57,14 @@ export class CreateAdmissionsComponent implements OnInit {
       mode:["",Validators.required],
       paymentDate:["",Validators.required]
     })
+  }
+
+  paymentForm(){
+    this.paymentData.userId=this.AdmissionForm.userId;
+    this.paymentData.status="Accepted";
+    this.paymentData.mode=this.AdmissionForm.mode;
+    this.paymentData.admissionId = this.a_id;
+    this.paymentData.courseId = this.c_id;
   }
 
   ngOnInit() {
@@ -76,18 +85,15 @@ export class CreateAdmissionsComponent implements OnInit {
     })
 
     this.http.getCourse(this.c_id).subscribe((data) => {
-      console.log(data);
-      this.course = data
+      // console.log(data);
+      this.course = data;
+      console.log(this.course);
+      this.c_name=this.course.courseName;
+      console.log(this.course.courseName);
+      console.log(this.c_name);
+      this.paymentForm();
     })
-
-    console.log(this.course);
-    
-    this.paymentData.userId=this.AdmissionForm.userId;
-    this.paymentData.status="Accepted";
-    this.paymentData.mode=this.AdmissionForm.mode;
-    this.paymentData.admissionId = this.a_id;
-    this.paymentData.courseId = this.AdmissionForm.courseID;
-
+  
     // if(this.admission.userId == this.paymentData.userId){
     //   this.paymentData.admissionId = this.admission.admissionId;
     // }
