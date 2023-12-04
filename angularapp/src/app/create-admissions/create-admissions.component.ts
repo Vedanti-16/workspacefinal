@@ -66,7 +66,7 @@ export class CreateAdmissionsComponent implements OnInit {
   paymentForm(){
     this.paymentData.userId=this.userId;
     this.paymentData.status="Accepted";
-    this.paymentData.mode=this.dmode;
+    this.paymentData.mode=this.AdmissionForm.mode;
     this.paymentData.admissionId = this.a_id;
     this.paymentData.courseId = this.c_id;
     this.AdmissionForm.status = "Accepted";
