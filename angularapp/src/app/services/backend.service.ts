@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IEmployee } from '../employee';
 import { Enquiry } from '../enquiry';
+import { Admission } from '../Models/Admission';
 
 @Injectable({
   providedIn: 'root'
@@ -111,6 +112,10 @@ export class BackendService {
 
   getAdmission(id:number) : Observable<any>{
     return this.http.get<any>(this.api+"/admission/"+id);
+  }
+
+  updateAdmission(id:number,admission:Admission) : Observable<any>{
+    return this.http.put<any>(this.api+"/admission/"+id,admission)
   }
 
 }

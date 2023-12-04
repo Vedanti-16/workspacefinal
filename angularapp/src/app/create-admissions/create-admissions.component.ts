@@ -107,10 +107,14 @@ export class CreateAdmissionsComponent implements OnInit {
     // this.AdmissionForm.status="Accepted";
     this.admissionByID={...this.admissionByID, status :"Accepted"};
 
-    console.log(this.admissionByID.status);
+    // console.log(this.admissionByID.status);
 
     this.http.postPayments(this.paymentData).subscribe(()=>{
     });
+
+    this.http.updateAdmission(this.c_id,this.admissionByID).subscribe((data) => {
+      console.log(data);
+    })
     console.log(this.paymentData);
   }
 

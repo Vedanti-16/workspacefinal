@@ -173,10 +173,10 @@ namespace projectapi.Controllers
  
                 // Update properties based on your Course model
 
-                existingAdm.courseId = admission.courseID;
-                existingAdm.userId = admission.userId;
-                existingAdm.status = admission.status;
-                existingAdm.ModifiedBy = admission.ModifiedBy;
+                existingAdm.CourseId = admission.CourseId;
+                existingAdm.UserId = admission.UserId;
+                existingAdm.Status = admission.Status;
+                // existingAdm.ModifiedBy = admission.ModifiedBy;
  
                 _db.SaveChanges();
  
