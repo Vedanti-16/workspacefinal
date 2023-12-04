@@ -45,7 +45,7 @@ export class CreateAdmissionsComponent implements OnInit {
   c_name: string;
   userId: number=0;
   dmode:string="UPI";
-  amt: number = 1000;
+  amt: number;
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     
