@@ -45,7 +45,7 @@ export class CreateAdmissionsComponent implements OnInit {
   c_name: string;
   userId: number=0;
   dmode:string="UPI";
-  amount: number;
+  amt: number = 1000;
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     
@@ -91,7 +91,8 @@ export class CreateAdmissionsComponent implements OnInit {
       console.log(this.course);
       this.c_name=this.course.courseName;
       console.log(this.course.courseName);
-      this.amount = this.course.feesAmount;
+      this.amt = this.course.feesAmount;
+      console.log(this.amt);
       console.log(this.c_name);
       this.paymentForm();
     })
