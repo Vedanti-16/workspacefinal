@@ -49,7 +49,7 @@ export class CreateAdmissionsComponent implements OnInit {
   amt: number;
 
   modes = ["UPI","Card"];
-  admissionByID: any;
+  admissionByID: Admission;
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     this.createAdmissionForm()
@@ -90,11 +90,11 @@ export class CreateAdmissionsComponent implements OnInit {
 
     //GET ADMISSION BY ID
 
-    this.http.getAdmission(2).subscribe((data) => {
-      this.admissionByID = data
+    this.http.getAdmission(this.c_id).subscribe((data) => {
+      this.admissionByID = data;
+      console.log(this.admissionByID);
     })
 
-    console.log(this.admissionByID);
   }
 
   onSubmit(){
@@ -105,10 +105,13 @@ export class CreateAdmissionsComponent implements OnInit {
     this.paymentData.admissionId = this.a_id;
     this.paymentData.courseId = this.c_id;
     // this.AdmissionForm.status="Accepted";
+    this.admissionByID={...this.admissionByID, status :"Accepted"};
+
+    console.log(this.admissionByID.status);
 
     this.http.postPayments(this.paymentData).subscribe(()=>{
     });
-    console.log(this.courseData);
+    console.log(this.paymentData);
   }
 
 }
