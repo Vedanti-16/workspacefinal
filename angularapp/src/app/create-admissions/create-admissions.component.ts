@@ -5,7 +5,6 @@ import { Payment } from '../Models/Payment';
 import { Admission } from '../Models/Admission';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../Models/Course';
-import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-create-admissions',
@@ -49,7 +48,7 @@ export class CreateAdmissionsComponent implements OnInit {
   amt: number;
 
   modes = ["UPI","Card"];
-  admissionByID: Admission;
+
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     this.createAdmissionForm()
@@ -68,31 +67,31 @@ export class CreateAdmissionsComponent implements OnInit {
 
     const id = this.ar.snapshot.paramMap.get("admissionId");
     this.a_id = Number(id);
-    console.log(this.a_id);
+    //console.log(this.a_id);
 
     const id2 = this.ar.snapshot.paramMap.get("courseId");
     this.c_id = Number(id2);
-    console.log(this.c_id);
+    //console.log(this.c_id);
 
     //GET COURSE BY ID
 
     this.http.getCourse(this.c_id).subscribe((data) => {
       // console.log(data);
       this.course = data;
-      console.log(this.course);
+      //console.log(this.course);
       this.c_name=this.course.courseName;
-      console.log(this.course.courseName);
+      //console.log(this.course.courseName);
       this.amt = this.course.feesAmount;
 
       this.AdmissionForm.controls.feesAmount.setValue(this.amt);
-      console.log(this.c_name);
+     // console.log(this.c_name);
     })
 
     //GET ADMISSION BY ID
 
     this.http.getAdmission(this.c_id).subscribe((data) => {
-      this.admissionByID = data;
-      console.log(this.admissionByID);
+      this.admission = data;
+      console.log('GetAdmission ' +this.admission);
     })
 
   }
@@ -105,15 +104,17 @@ export class CreateAdmissionsComponent implements OnInit {
     this.paymentData.admissionId = this.a_id;
     this.paymentData.courseId = this.c_id;
     // this.AdmissionForm.status="Accepted";
-    this.admissionByID={...this.admissionByID, status :"Accepted"};
+    this.admission={...this.admission, status :"Accepted"};
 
     // console.log(this.admissionByID.status);
 
     this.http.postPayments(this.paymentData).subscribe(()=>{
     });
 
-    this.http.updateAdmission(this.c_id,this.admissionByID).subscribe((data) => {
-      console.log(data);
+    console.log("C_id"+this.c_id);
+
+    this.http.updateAdmission(this.c_id,this.admission).subscribe((data) => {
+      console.log('UpdateAdmission' + data);
     })
     console.log(this.paymentData);
   }
