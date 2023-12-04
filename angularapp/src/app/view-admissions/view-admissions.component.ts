@@ -9,7 +9,7 @@ import { Admission } from '../Models/Admission';
 })
 export class ViewAdmissionsComponent implements OnInit {
 
-  status = ["Pending", "Accepted"];
+  // status = ["Pending", "Accepted"];
   admData: Admission;
   userId:number=0;
   paymentData: any;

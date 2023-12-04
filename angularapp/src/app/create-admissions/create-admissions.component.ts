@@ -90,11 +90,11 @@ export class CreateAdmissionsComponent implements OnInit {
 
     //GET ADMISSION BY ID
 
-    this.http.getAdmission(this.a_id).subscribe((data) => {
+    this.http.getAdmission(2).subscribe((data) => {
       this.admissionByID = data
     })
 
-    console.
+    console.log(this.admissionByID);
   }
 
   onSubmit(){
@@ -104,7 +104,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.paymentData.mode=this.AdmissionForm.mode;
     this.paymentData.admissionId = this.a_id;
     this.paymentData.courseId = this.c_id;
-    this.AdmissionForm.status="Accepted";
+    // this.AdmissionForm.status="Accepted";
 
     this.http.postPayments(this.paymentData).subscribe(()=>{
     });
