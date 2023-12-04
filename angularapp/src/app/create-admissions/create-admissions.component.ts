@@ -56,22 +56,12 @@ export class CreateAdmissionsComponent implements OnInit {
   createAdmissionForm(){
     this.AdmissionForm = this.fb.group({
       userId:['',Validators.required],
-      courseId:["",Validators.required],
-      feesAmount:['',Validators.required],
-      mode:["",Validators.required],
-      paymentDate:["",Validators.required]
+      courseId:['',Validators.required],
+      feesAmount:[this.amt,Validators.required],
+      mode:['',Validators.required],
+      paymentDate:['',Validators.required]
     })
   }
-
-  paymentForm(){
-    this.paymentData.userId=this.userId;
-    this.paymentData.status="Accepted";
-    this.paymentData.mode=this.admn.mode;
-    this.paymentData.admissionId = this.a_id;
-    this.paymentData.courseId = this.c_id;
-    this.AdmissionForm.status = "Accepted";
-  }
-
   ngOnInit() {
 
     const id = this.ar.snapshot.paramMap.get("admissionId");
@@ -81,8 +71,6 @@ export class CreateAdmissionsComponent implements OnInit {
     const id2 = this.ar.snapshot.paramMap.get("courseId");
     this.c_id = Number(id2);
     console.log(this.c_id);
-    
-  
 
     // this.http.getCourses().subscribe((data) => {
     //   this.courseData = data
@@ -94,12 +82,13 @@ export class CreateAdmissionsComponent implements OnInit {
       console.log(this.course);
       this.c_name=this.course.courseName;
       console.log(this.course.courseName);
-      //this.amt = this.course.feesAmount;
+      this.amt = this.course.feesAmount;
+
+      this.AdmissionForm.controls.feesAmount.setValue(this.amt);
       
       // this.AdmissionForm.feesAmount = this.course.feesAmount;
       // console.log('amt ' + this.AdmissionForm.feesAmount);
       console.log(this.c_name);
-      this.paymentForm();
     })
   
     // if(this.admission.userId == this.paymentData.userId){
@@ -108,6 +97,14 @@ export class CreateAdmissionsComponent implements OnInit {
   }
 
   onSubmit(){
+
+    this.paymentData.userId=this.userId;
+    this.paymentData.status="Accepted";
+    this.paymentData.mode=this.AdmissionForm.mode;
+    this.paymentData.admissionId = this.a_id;
+    this.paymentData.courseId = this.c_id;
+    this.AdmissionForm.status = "Accepted";
+
     this.http.postPayments(this.paymentData).subscribe(()=>{
     });
     console.log(this.courseData);
