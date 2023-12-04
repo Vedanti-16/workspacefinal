@@ -27,30 +27,30 @@
 
             <div>
                 <label for="feesAmount">Total Amount:</label>
-                <input type="number" id="amount" [(ngModel)]="course.feesAmount" formControlName="feesAmount" class="form-control" required>
+                <input type="number" id="amount" [(ngModel)]="amt" formControlName="feesAmount" class="form-control" required>
                 <!-- <div style="color: red;"
                     *ngIf="AdmissionForm.get('').hasError('required') && AdmissionForm.get('feesAmount').touched">
                     Total Amount is required.</div> -->
             </div>
             <br>
 
-            <div>
+            <!-- <div>
                 <label for="mode">Payment Mode:</label>
                 <input type="string" [(ngModel)]="dmode" id="mode" formControlName="mode" class="form-control" required>
                 
                 <div style="color: red;" *ngIf="AdmissionForm.get('mode').hasError('required')"
                     class="invalid-feedback">Course Name is required.</div>
             </div>
-            <br>
+            <br> -->
 
-            <!-- <div>
+            <div>
                 <label for="mode">Mode of Payment:</label>
                 <select id="mode" name="mode" formControlName="mode" class="form-control" required>
                     <option *ngFor="let mode of modes">{{ mode }}</option>
                 </select>
                 <div style="color: red;" *ngIf="AdmissionForm.get('mode').hasError('required')"
                     class="invalid-feedback">Mode of Payment is required.</div>
-            </div> -->
+            </div>
             <br>
 
             <div>

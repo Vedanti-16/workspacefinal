@@ -47,6 +47,8 @@ export class CreateAdmissionsComponent implements OnInit {
   dmode:string="UPI";
   amt: number;
 
+  modes = ["UPI","Card"];
+
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     
   }
@@ -55,7 +57,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.AdmissionForm = this.fb.group({
       userId:['',Validators.required],
       courseId:["",Validators.required],
-      feesAmount:['', Validators.required],
+      feesAmount:['',Validators.required],
       mode:["",Validators.required],
       paymentDate:["",Validators.required]
     })
@@ -67,6 +69,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.paymentData.mode=this.dmode;
     this.paymentData.admissionId = this.a_id;
     this.paymentData.courseId = this.c_id;
+    this.AdmissionForm.status = "Accepted";
   }
 
   ngOnInit() {
