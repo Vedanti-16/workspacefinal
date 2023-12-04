@@ -27,7 +27,7 @@
 
             <div>
                 <label for="amount">Total Amount:</label>
-                <input id="amount" name="amount" formControlName="amount" class="form-control" readonly required>
+                <input id="amount" [(ngModel)]="amount" name="amount" formControlName="amount" class="form-control" readonly required>
                 <div style="color: red;"
                     *ngIf="AdmissionForm.get('amount').hasError('required') && AdmissionForm.get('amount').touched">
                     Total Amount is required.</div>

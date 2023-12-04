@@ -45,6 +45,7 @@ export class CreateAdmissionsComponent implements OnInit {
   c_name: string;
   userId: number=0;
   dmode:string="UPI";
+  amount: number;
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     
@@ -70,13 +71,12 @@ export class CreateAdmissionsComponent implements OnInit {
 
   ngOnInit() {
 
-    const id = this.ar.snapshot.paramMap.get("admissionId")
+    const id = this.ar.snapshot.paramMap.get("admissionId");
     this.a_id = Number(id);
     console.log(this.a_id);
 
     const id2 = this.ar.snapshot.paramMap.get("courseId");
     this.c_id = Number(id2);
-
     console.log(this.c_id);
     
     this.createAdmissionForm();
@@ -91,6 +91,7 @@ export class CreateAdmissionsComponent implements OnInit {
       console.log(this.course);
       this.c_name=this.course.courseName;
       console.log(this.course.courseName);
+      this.amount = this.course.feesAmount;
       console.log(this.c_name);
       this.paymentForm();
     })
