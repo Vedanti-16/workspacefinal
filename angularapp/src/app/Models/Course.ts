@@ -7,8 +7,8 @@ export interface Course {
     feesAmount: number,
     createdBy: string,
     modifiedBy: string,
-    isDeleted: boolean
+    isDeleted: boolean,
+    modifiedAt:string
     //enquiries?:Enquiry
- 
+
 }
-    

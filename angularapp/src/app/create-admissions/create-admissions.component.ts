@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Payment } from '../Models/Payment';
 import { Admission } from '../Models/Admission';
 import { ActivatedRoute } from '@angular/router';
+import { Course } from '../Models/Course';
 
 @Component({
   selector: 'app-create-admissions',
@@ -40,7 +41,7 @@ export class CreateAdmissionsComponent implements OnInit {
   }
 
   a_id:number;
-  course:any;
+  course:Course;
   c_id: number;
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
@@ -66,17 +67,20 @@ export class CreateAdmissionsComponent implements OnInit {
     const id2 = this.ar.snapshot.paramMap.get("courseId");
     this.c_id = Number(id2);
 
+    console.log(this.c_id);
     
     this.createAdmissionForm();
+
     this.http.getCourses().subscribe((data) => {
       this.courseData = data
     })
 
     this.http.getCourse(this.c_id).subscribe((data) => {
+      console.log(data);
       this.course = data
     })
 
-
+    console.log(this.course);
     
     this.paymentData.userId=this.AdmissionForm.userId;
     this.paymentData.status="Accepted";
@@ -87,7 +91,6 @@ export class CreateAdmissionsComponent implements OnInit {
     // if(this.admission.userId == this.paymentData.userId){
     //   this.paymentData.admissionId = this.admission.admissionId;
     // }
-    
   }
 
   onSubmit(){
