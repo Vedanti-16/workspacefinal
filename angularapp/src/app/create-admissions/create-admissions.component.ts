@@ -39,7 +39,6 @@ export class CreateAdmissionsComponent implements OnInit {
     courseName: ''
   }
 
-  userId:number=0;
   p_id:number;
   course:any;
 
@@ -61,6 +60,7 @@ export class CreateAdmissionsComponent implements OnInit {
 
     const id = this.ar.snapshot.paramMap.get("admissionId")
     this.p_id = Number(id);
+    console.log(this.p_id);
     
     this.createAdmissionForm();
     this.http.getCourses().subscribe((data) => {
@@ -70,6 +70,8 @@ export class CreateAdmissionsComponent implements OnInit {
     this.http.getCourse(this.admission.courseId).subscribe((data) => {
       this.course = data
     })
+
+
     
     this.paymentData.userId=this.AdmissionForm.userId;
     this.paymentData.status="Accepted";
@@ -85,6 +87,7 @@ export class CreateAdmissionsComponent implements OnInit {
 
   onSubmit(){
     this.http.postPayments(this.paymentData).subscribe(()=>{
+
     });
     console.log(this.courseData);
   }
