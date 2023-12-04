@@ -9,7 +9,7 @@
 
             <div>
                 <label for="userId">User ID</label>
-                <input type="number" [(ngModel)]="userId" id="userId" formControlName="userId" class="form-control" required>
+                <input type="number" [(ngModel)]="userId" id="userId" formControlName="userId" class="form-control" readonly required>
                 <div
                     *ngIf="AdmissionForm.get('userId').hasError('required') && AdmissionForm.get('userId').touched">
                     User ID is required.</div>
@@ -18,7 +18,7 @@
 
             <div>
                 <label for="courseId">Course Name:</label>
-                <input type="string" [(ngModel)]="c_name" id="c_name" formControlName="courseId" class="form-control" required>
+                <input type="string" readonly [(ngModel)]="c_name" id="c_name" formControlName="courseId" class="form-control" required>
                 
                 <div style="color: red;" *ngIf="AdmissionForm.get('c_name').hasError('required')"
                     class="invalid-feedback">Course Name is required.</div>
@@ -27,7 +27,7 @@
 
             <div>
                 <label for="amount">Total Amount:</label>
-                <input id="amount" name="amount" formControlName="amount" class="form-control" required>
+                <input id="amount" name="amount" formControlName="amount" class="form-control" readonly required>
                 <div style="color: red;"
                     *ngIf="AdmissionForm.get('amount').hasError('required') && AdmissionForm.get('amount').touched">
                     Total Amount is required.</div>
@@ -35,8 +35,8 @@
             <br>
 
             <div>
-                <label for="courseId">Payment Mode:</label>
-                <input type="string" [(ngModel)]="mode" id="mode" formControlName="mode" class="form-control" required>
+                <label for="mode">Payment Mode:</label>
+                <input type="string" [(ngModel)]="dmode" id="mode" formControlName="mode" class="form-control" required>
                 
                 <div style="color: red;" *ngIf="AdmissionForm.get('mode').hasError('required')"
                     class="invalid-feedback">Course Name is required.</div>

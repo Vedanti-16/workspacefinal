@@ -13,7 +13,6 @@ import { Course } from '../Models/Course';
 })
 export class CreateAdmissionsComponent implements OnInit {
 
-  mode:string="UPI";
   AdmissionForm:any;
   courseData: any[]=[];
 
@@ -44,6 +43,8 @@ export class CreateAdmissionsComponent implements OnInit {
   course:Course;
   c_id: number;
   c_name: string;
+  userId: number=0;
+  dmode:string="UPI";
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     
@@ -60,9 +61,9 @@ export class CreateAdmissionsComponent implements OnInit {
   }
 
   paymentForm(){
-    this.paymentData.userId=this.AdmissionForm.userId;
+    this.paymentData.userId=this.userId;
     this.paymentData.status="Accepted";
-    this.paymentData.mode=this.AdmissionForm.mode;
+    this.paymentData.mode=this.dmode;
     this.paymentData.admissionId = this.a_id;
     this.paymentData.courseId = this.c_id;
   }
