@@ -34,20 +34,11 @@
             </div>
             <br>
 
-            <!-- <div>
-                <label for="mode">Payment Mode:</label>
-                <input type="string" [(ngModel)]="dmode" id="mode" formControlName="mode" class="form-control" required>
-                
-                <div style="color: red;" *ngIf="AdmissionForm.get('mode').hasError('required')"
-                    class="invalid-feedback">Course Name is required.</div>
-            </div>
-            <br> -->
-
             <div>
                 <label for="mode">Mode of Payment:</label>
                 <select id="mode" name="mode" formControlName="mode" class="form-control" required>
-                    <option value="mode">UPI</option>
-                    <option></option>
+                    <option>UPI</option>
+                    <option>Card</option>
                 </select>
                 <div style="color: red;" *ngIf="AdmissionForm.get('mode').hasError('required')"
                     class="invalid-feedback">Mode of Payment is required.</div>
