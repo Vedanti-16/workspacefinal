@@ -157,36 +157,36 @@ namespace projectapi.Controllers
             }
         }
 
-        //----------------------------PUT PAYMENTS--------------------------------------
+        // ----------------------------PUT ADMISSIONS--------------------------------------
 
-        // [HttpPut("course/{id}")]
-        // public IActionResult EditCourse(int id, [FromBody] Course course)
-        // {
-        //     try
-        //     {
-        //         var existingCourse = _db.Courses.Find(id);
+        [HttpPut("admission/{id}")]
+        public IActionResult EditAdmission(int id, [FromBody] Admission admission)
+        {
+            try
+            {
+                var existingAdm = _db.Admissions.Find(id);
  
-        //         if (existingCourse == null)
-        //         {
-        //             return NotFound($"Course with ID {id} not found");
-        //         }
+                if (existingAdm == null)
+                {
+                    return NotFound($"Admission with ID {id} not found");
+                }
  
-        //         // Update properties based on your Course model
-        //         existingCourse.CourseName = course.CourseName;
-        //         existingCourse.Description = course.Description;
-        //         existingCourse.Duration = course.Duration;
-        //         existingCourse.FeesAmount = course.FeesAmount;
-        //         existingCourse.ModifiedBy = course.ModifiedBy;
+                // Update properties based on your Course model
+
+                existingAdm.courseId = admission.courseID;
+                existingAdm.userId = admission.userId;
+                existingAdm.status = admission.status;
+                existingAdm.ModifiedBy = admission.ModifiedBy;
  
-        //         _db.SaveChanges();
+                _db.SaveChanges();
  
-        //         return NoContent();
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         return StatusCode(500, $"Internal Server Error: {ex.Message}");
-        //     }
-        // }
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
+        }
 
 
         //-------------------------------DeleteAdmission---------------------------------------
