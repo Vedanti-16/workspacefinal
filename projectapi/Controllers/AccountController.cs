@@ -214,6 +214,22 @@ namespace projectapi.Controllers
             }
         }
 
+        //---------------------------GET ADMISSION BY ID-----------------------
+
+        [HttpGet("admission/{id}")]
+        public IActionResult GetAdmission(int id)
+        {
+            try
+            {
+                var admission = _db.Admissions.FirstOrDefault(e=>e.AdmissionId==id);
+                return Ok(admission);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
+        }
+
 //----------------------------------------COURSES-------------------------------------------
 
         [HttpGet("courses")]

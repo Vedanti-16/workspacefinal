@@ -109,4 +109,8 @@ export class BackendService {
     return this.http.post<any>(this.api+"/addAdmission",adm)
   }
 
+  getAdmission(id:number) : Observable<any>{
+    return this.http.get<any>(this.api+"/admission/"+id);
+  }
+
 }

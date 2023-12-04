@@ -5,6 +5,7 @@ import { Payment } from '../Models/Payment';
 import { Admission } from '../Models/Admission';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../Models/Course';
+import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-create-admissions',
@@ -48,6 +49,7 @@ export class CreateAdmissionsComponent implements OnInit {
   amt: number;
 
   modes = ["UPI","Card"];
+  admissionByID: any;
 
   constructor(private http:BackendService, private fb:FormBuilder, private ar:ActivatedRoute) { 
     this.createAdmissionForm()
@@ -72,9 +74,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.c_id = Number(id2);
     console.log(this.c_id);
 
-    // this.http.getCourses().subscribe((data) => {
-    //   this.courseData = data
-    // })
+    //GET COURSE BY ID
 
     this.http.getCourse(this.c_id).subscribe((data) => {
       // console.log(data);
@@ -85,15 +85,16 @@ export class CreateAdmissionsComponent implements OnInit {
       this.amt = this.course.feesAmount;
 
       this.AdmissionForm.controls.feesAmount.setValue(this.amt);
-      
-      // this.AdmissionForm.feesAmount = this.course.feesAmount;
-      // console.log('amt ' + this.AdmissionForm.feesAmount);
       console.log(this.c_name);
     })
-  
-    // if(this.admission.userId == this.paymentData.userId){
-    //   this.paymentData.admissionId = this.admission.admissionId;
-    // }
+
+    //GET ADMISSION BY ID
+
+    this.http.getAdmission(this.a_id).subscribe((data) => {
+      this.admissionByID = data
+    })
+
+    console.
   }
 
   onSubmit(){
@@ -103,7 +104,7 @@ export class CreateAdmissionsComponent implements OnInit {
     this.paymentData.mode=this.AdmissionForm.mode;
     this.paymentData.admissionId = this.a_id;
     this.paymentData.courseId = this.c_id;
-    this.AdmissionForm.status = "Accepted";
+    this.AdmissionForm.status="Accepted";
 
     this.http.postPayments(this.paymentData).subscribe(()=>{
     });
