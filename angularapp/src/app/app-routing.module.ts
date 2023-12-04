@@ -9,6 +9,7 @@ import { CreateAdmissionsComponent } from './create-admissions/create-admissions
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { ViewAdmissionsComponent } from './view-admissions/view-admissions.component';
+import { ViewEnquiryComponent } from './view-enquiry/view-enquiry.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path:'admForm/:admissionId/:courseId',component:CreateAdmissionsComponent},
   {path:'viewCourses',component:ViewCoursesComponent},
   {path:'enquiryForm',component:EnquiryFormComponent},
-  {path:"viewAdm",component:ViewAdmissionsComponent}
+  {path:"viewAdm",component:ViewAdmissionsComponent},
+  {path:"viewEnquiries",component:ViewEnquiryComponent}
 ];
 
 @NgModule({

@@ -374,22 +374,24 @@ namespace projectapi.Controllers
         {
             try
             {
-                var user = _db.Users.FirstOrDefault(u => u.UserId == enquiry.UserId);
+                // var user = _db.Users.FirstOrDefault(u => u.UserId == enquiry.UserId);
 
-                if (user == null)
-                {
-                    return BadRequest("User not found.");
-                }
+                // if (user == null)
+                // {
+                //     return BadRequest("User not found.");
+                // }
 
-                if (user.UserRole == "student")
-                {
+                // if (user.UserRole == "student")
+                // {
                     if (_db.Enquiries.Count(e => e.EnquiryDate.Date == DateTime.Today && e.UserId == enquiry.UserId) >= 5)
                     {
                         return BadRequest("You have reached the maximum number of enquiries per day.");
                     }
-                }
+                    else{
+                        _db.Enquiries.Add(enquiry);
+                    }
+                // }
 
-                _db.Enquiries.Add(enquiry);
                 _db.SaveChanges();
 
                 return Ok("Enquiry added successfully.");
